@@ -1,5 +1,6 @@
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { useState } from "react";
 
 const navigation = [
   { name: "Home", href: "#", current: true },
@@ -15,6 +16,12 @@ function classNames(...classes) {
 }
 
 function Navbar() {
+  const [activeItem, setActiveItem] = useState(navigation.find(item => item.current)?.name || '');
+
+  const handleItemClick = (name) => {
+    setActiveItem(name);
+  };
+
   return (
     <Disclosure as="nav" className="bg-gray-100">
       {({ open }) => (
@@ -47,8 +54,9 @@ function Navbar() {
                       <a
                         key={item.name}
                         href={item.href}
+                        onClick={() => handleItemClick(item.name)}
                         className={classNames(
-                          item.current
+                          item.name === activeItem
                             ? "bg-gray-900 text-white"
                             : "text-gray-900 hover:bg-gray-700 hover:text-white",
                           "rounded-md px-3 py-2 text-sm font-medium"
@@ -61,7 +69,6 @@ function Navbar() {
                   </div>
                 </div>
               </div>
-
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"></div>
             </div>
           </div>
@@ -72,8 +79,9 @@ function Navbar() {
                   key={item.name}
                   as="a"
                   href={item.href}
+                  onClick={() => handleItemClick(item.name)}
                   className={classNames(
-                    item.current
+                    item.name === activeItem
                       ? "bg-gray-900 text-white"
                       : "text-gray-300 hover:bg-gray-700 hover:text-white",
                     "block rounded-md px-3 py-2 text-base font-medium transition-colors duration-200"
