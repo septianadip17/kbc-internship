@@ -4,7 +4,7 @@ const Login = () => {
       <div className="md:w-1/3 max-w-sm">
         <img
           src="https://kbc.or.id/img/general/KBC-Logo_1594107681.png"
-          alt="Sample image"
+          alt="Logo KBC"
         />
       </div>
       <div className="md:w-1/3 max-w-sm">
