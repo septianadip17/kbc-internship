@@ -31,7 +31,7 @@ const Register = () => {
         />
         <div className="text-center md:text-left">
           <button
-            className="mt-4 bg-yellow-900 hover:bg-yellow-600 px-10 py-2 text-white uppercase rounded text-xs tracking-wider"
+            className="mt-4 bg-yellow-900 hover:bg-yellow-600 px-6 py-2 text-white uppercase rounded text-xs tracking-wider"
             type="submit"
           >
             Daftar
