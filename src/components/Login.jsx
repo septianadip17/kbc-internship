@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Login = () => {
   return (
     <section className="h-screen flex flex-col md:flex-row justify-center space-y-10 md:space-y-0 md:space-x-16 items-center my-2 mx-5 md:mx-0 md:my-0">
@@ -31,22 +33,29 @@ const Login = () => {
             Lupa Password?
           </a>
         </div>
-        <div className="text-center md:text-left">
-          <button
-            className="mt-4 bg-yellow-900 hover:bg-yellow-600 px-4 py-2 text-white uppercase rounded text-xs tracking-wider"
+        <div className="text-center md:text-left mt-4">
+          <Link
+            className=" mr-4 bg-yellow-900 hover:bg-yellow-600 px-4 py-2 text-white uppercase rounded text-xs tracking-wider"
             type="submit"
           >
             Login
-          </button>
+          </Link>
+          <Link
+            to="/"
+            className="bg-yellow-900 hover:bg-yellow-600 px-4 py-2 text-white uppercase rounded text-xs tracking-wider"
+            type="button"
+          >
+            Back to Home
+          </Link>
         </div>
         <div className="mt-4 font-semibold text-sm text-slate-500 text-center md:text-left">
           Belum Punya Akun?{" "}
-          <a
+          <Link
+            to="/register"
             className="text-red-600 hover:underline hover:underline-offset-4"
-            href="#"
           >
             Daftar Sekarang
-          </a>
+          </Link>
         </div>
       </div>
     </section>

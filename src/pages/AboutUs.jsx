@@ -3,13 +3,11 @@ import Footer from "../components/Footer";
 
 const AboutUs = () => {
   return (
-    <>
-    <Navbar/>
     <div>
-      <h1>ini About yaa</h1>
+      <Navbar/>
+      <h1>About Us Page</h1>
+      <Footer/>
     </div>
-    <Footer/>
-    </>
   );
 };
 
