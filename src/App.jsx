@@ -7,6 +7,8 @@ import Gallery from "./pages/Gallery";
 import Home from "./pages/Home";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import ForgotPassword from "./components/ForgotPassword";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
           <Route path="/articles" element={<Article />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/recovery" element={<ForgotPassword />} />
+          <Route path="/*" element={<NotFound />} />
         </Routes>
       </Router>
     </>

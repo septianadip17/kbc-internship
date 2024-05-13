@@ -26,12 +26,12 @@ const Login = () => {
             <input className="mr-1" type="checkbox" />
             <span>Ingatkan Saya</span>
           </label>
-          <a
+          <Link
+            to="/recovery"
             className="text-blue-600 hover:text-blue-700 hover:underline hover:underline-offset-4"
-            href="#"
           >
-            Lupa Password?
-          </a>
+            Lupa Password
+          </Link>
         </div>
         <div className="text-center md:text-left mt-4">
           <Link
@@ -45,7 +45,7 @@ const Login = () => {
             className="bg-yellow-900 hover:bg-yellow-600 px-4 py-2 text-white uppercase rounded text-xs tracking-wider"
             type="button"
           >
-            Back to Home
+            Kembali ke halaman
           </Link>
         </div>
         <div className="mt-4 font-semibold text-sm text-slate-500 text-center md:text-left">

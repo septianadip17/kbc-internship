@@ -1,5 +1,9 @@
 import { NavLink, Link } from "react-router-dom";
-import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react";
+import {
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+} from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 
@@ -22,7 +26,7 @@ function Navbar() {
 
   const handleItemClick = (name) => {
     setActiveItem(name);
-    navigation.forEach(item => {
+    navigation.forEach((item) => {
       item.current = item.name === name;
     });
   };
@@ -31,8 +35,9 @@ function Navbar() {
     <Disclosure as="nav" className="bg-gray-100 w-full z-10">
       {({ open }) => (
         <>
-          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+          <div className="mx-auto px-2 sm:px-6 lg:px-8">
             <div className="relative flex h-16 items-center justify-between">
+              {/* humburger */}
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 <DisclosureButton className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="absolute -inset-0.5" />
@@ -49,9 +54,10 @@ function Navbar() {
                   <img
                     className="h-8 w-auto"
                     src="https://kbc.or.id/img/general/KBC-Logo_1594107681.png"
-                    alt="Your Company"
+                    alt="KBC Logo"
                   />
                 </div>
+                {/* Navbar Web */}
                 <div className="hidden sm:ml-auto sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
@@ -60,7 +66,9 @@ function Navbar() {
                         to={item.link}
                         onClick={() => handleItemClick(item.name)}
                         className={classNames(
-                          item.current ? "bg-gray-900 text-white" : "text-gray-900 hover:bg-gray-700 hover:text-white",
+                          item.current
+                            ? "bg-gray-900 text-white"
+                            : "text-gray-900 hover:bg-gray-700 hover:text-white",
                           "rounded-md px-3 py-2 text-sm font-medium"
                         )}
                       >
@@ -78,6 +86,7 @@ function Navbar() {
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"></div>
             </div>
           </div>
+          {/* Navbar Mobile Panel */}
           <DisclosurePanel className="sm:hidden">
             <div className="space-y-1 px-2 pb-3 pt-2">
               {navigation.map((item) => (
@@ -87,13 +96,20 @@ function Navbar() {
                   to={item.link}
                   onClick={() => handleItemClick(item.name)}
                   className={classNames(
-                    item.current ? "bg-gray-900 text-white" : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                    item.current
+                      ? "bg-gray-900 text-white"
+                      : "text-gray-300 hover:bg-gray-700 hover:text-white",
                     "block rounded-md px-3 py-2 text-base font-medium transition-colors duration-200"
                   )}
                 >
                   {item.name}
                 </Disclosure.Button>
               ))}
+              <Link to="/login">
+                <button className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
+                  Login
+                </button>
+              </Link>
             </div>
           </DisclosurePanel>
         </>
