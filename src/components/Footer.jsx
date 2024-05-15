@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
-    <div className="bg-yellow-600 text-white py-2 text-center">
-      <h1>KINGDOM BUSINESS COMMUNITY</h1>
+    <div className="bg-yellow-600 text-white py-2 ">
+      <h1 className="text-2xl font-black text-gray-900 dark:text-white text-center">KINGDOM BUSINESS COMMUNITY</h1>
       <div className="grid grid-cols-3 text-center">
         <div>
           <h3>KBC Jawa Timur</h3>

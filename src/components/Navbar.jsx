@@ -92,7 +92,7 @@ function Navbar() {
           <DisclosurePanel className="sm:hidden">
             <div className="space-y-1 px-2 pb-3 pt-2">
               {navigation.map((item) => (
-                <Disclosure.Button
+                <DisclosureButton
                   key={item.name}
                   as={NavLink}
                   to={item.link}
@@ -105,7 +105,7 @@ function Navbar() {
                   )}
                 >
                   {item.name}
-                </Disclosure.Button>
+                </DisclosureButton>
               ))}
               <Link to="/login">
                 <button className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
