@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 
 const navigation = [
   { name: "Home", href: "/", current: true },
-  { name: "About Us", href: "/aboutus", current: false },
+  { name: "About Us", href: "/about-us", current: false },
   { name: "Event", href: "/events", current: false },
   { name: "Gallery", href: "/gallery", current: false },
   { name: "Artice", href: "/articles", current: false },
