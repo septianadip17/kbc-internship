@@ -6,7 +6,7 @@ import fotoRamai from "../assets/foto_ramai.png";
 const Home = () => {
   const alumniCount = 6;
   const alumniListItems = Array.from({ length: alumniCount }, (_, index) => (
-    <li key={index} className="font-bold text-2xl shadow-md p-4">
+    <li key={index} className="font-bold text-2xl text-center p-4">
       <h2>1.000</h2>
       <h2>ALUMNI SUKSES SEJATI</h2>
     </li>
@@ -16,6 +16,7 @@ const Home = () => {
     <>
       <Navbar />
       <Header />
+      {/* About Us */}
       <div className="container mx-auto ">
         <div className="grid md:grid-cols-12 md:gap-6">
           <div className="md:col-span-8">
@@ -51,8 +52,8 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="container mx-4">
-        <ul className="my-6 grid grid-cols-3 gap-4 list-none">
+      <div className="container mx-auto ">
+        <ul className="my-6 grid grid-cols-3 gap-4 list-none ">
           {alumniListItems}
         </ul>
       </div>
