@@ -6,6 +6,7 @@ import {
 } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const navigation = [
   { name: "Home", link: "/", current: false },
@@ -90,7 +91,12 @@ function Navbar() {
           </div>
           {/* Navbar Mobile Panel */}
           <DisclosurePanel className="md:hidden">
-            <div className="space-y-1 text-center px-2 pb-3 pt-2">
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: open ? 1 : 0, height: open ? "auto" : 0 }}
+              transition={{ duration: 0.3 }}
+              className="space-y-1 text-center px-2 pb-3 pt-2"
+            >
               {navigation.map((item) => (
                 <DisclosureButton
                   key={item.name}
@@ -112,7 +118,7 @@ function Navbar() {
                   Login
                 </button>
               </Link>
-            </div>
+            </motion.div>
           </DisclosurePanel>
         </>
       )}

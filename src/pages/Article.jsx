@@ -4,7 +4,9 @@ const Article = () => {
   return (
     <>
       <Navbar />
-      <h1>ini articles yaa</h1>
+      <div className="flex flex-col items-center justify-center min-h-screen">
+        <h1 className="text-3xl font-bold mb-8">Ini artikel</h1>
+      </div>
       <Footer />
     </>
   );

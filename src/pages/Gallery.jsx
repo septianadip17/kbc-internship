@@ -5,7 +5,9 @@ const Gallery = () => {
   return (
     <>
       <Navbar/>
-        <h1>Gallery yaaa</h1>
+      <div className="flex flex-col items-center justify-center min-h-screen">
+        <h1 className="text-3xl font-bold mb-8">Gallery di sini yaa</h1>
+      </div>
       <Footer/>
     </>
   );

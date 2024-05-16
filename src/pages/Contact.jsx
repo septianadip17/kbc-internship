@@ -5,7 +5,9 @@ const Contact = () => {
   return (
     <>
       <Navbar />
-      <h1>Ini adalah Contact</h1>
+      <div className="flex flex-col items-center justify-center min-h-screen">
+        <h1 className="text-3xl font-bold mb-8">Kontak di sini</h1>
+      </div>
       <Footer />
     </>
   );
