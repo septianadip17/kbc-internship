@@ -6,7 +6,7 @@ import {
 } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const navigation = [
   { name: "Home", link: "/", current: false },
@@ -91,34 +91,39 @@ function Navbar() {
           </div>
           {/* Navbar Mobile Panel */}
           <DisclosurePanel className="md:hidden">
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: open ? 1 : 0, height: open ? "auto" : 0 }}
-              transition={{ duration: 0.3 }}
-              className="space-y-1 text-center px-2 pb-3 pt-2"
-            >
-              {navigation.map((item) => (
-                <DisclosureButton
-                  key={item.name}
-                  as={NavLink}
-                  to={item.link}
-                  onClick={() => handleItemClick(item.name)}
-                  className={classNames(
-                    item.current
-                      ? "bg-gray-900 text-white"
-                      : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                    "block rounded-md px-3 py-2 text-base font-medium transition-colors duration-200"
-                  )}
+            <AnimatePresence>
+              {open && (
+                <motion.div
+                  initial={{ opacity: 0, y: -50 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -50 }}
+                  transition={{ duration: 0.3 }}
+                  className="space-y-1 text-center px-2 pb-3 pt-2"
                 >
-                  {item.name}
-                </DisclosureButton>
-              ))}
-              <Link to="/login">
-                <button className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
-                  Login
-                </button>
-              </Link>
-            </motion.div>
+                  {navigation.map((item) => (
+                    <DisclosureButton
+                      key={item.name}
+                      as={NavLink}
+                      to={item.link}
+                      onClick={() => handleItemClick(item.name)}
+                      className={classNames(
+                        item.current
+                          ? "bg-gray-900 text-white"
+                          : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                        "block rounded-md px-3 py-2 text-base font-medium transition-colors duration-200"
+                      )}
+                    >
+                      {item.name}
+                    </DisclosureButton>
+                  ))}
+                  <Link to="/login">
+                    <button className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
+                      Login
+                    </button>
+                  </Link>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </DisclosurePanel>
         </>
       )}
