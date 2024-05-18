@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import fotoRamai from "../assets/foto_ramai.png";
 import cardBackground from "../assets/card-background.png";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   // data alumni
@@ -85,17 +86,21 @@ const Home = () => {
                 <p className="text-xs">12.00 PM - 15.00 PM</p>
                 <p className="text-xs">@KBC Surabaya</p>
               </div>
-              <button className="mt-4 bg-yellow-600 text-white py-2 px-4 font-bold rounded hover:bg-yellow-700 hover:text-gray-200">
-                Register Here
-              </button>
+              <Link to="/register">
+                <button className="mt-4 bg-yellow-600 text-white py-2 px-4 font-bold rounded hover:bg-yellow-700 hover:text-gray-200">
+                  Register Here
+                </button>
+              </Link>
             </div>
           ))}
         </div>
 
         <div className="text-center mt-6">
-          <button className="bg-white text-red-500 font-bold py-2 px-6 rounded hover:bg-red-500 hover:text-white">
-            See More Events
-          </button>
+          <Link to="/events">
+            <button className="bg-white text-red-500 font-bold py-2 px-6 rounded hover:bg-red-500 hover:text-white">
+              See More Events
+            </button>
+          </Link>
         </div>
       </div>
 
