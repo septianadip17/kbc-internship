@@ -2,6 +2,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import fotoRamai from "../assets/foto_ramai.png";
+import cardBackground from "../assets/card-background.png";
 
 const Home = () => {
   // data alumni
@@ -52,15 +53,52 @@ const Home = () => {
 
       {/* Total Alumni */}
       <div className="container mx-auto py-10">
-        <ul className="my-6 grid grid-cols-3 gap-4 list-none">
+        <ul className="my-6 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 list-none">
           {alumniListItems}
         </ul>
       </div>
 
       {/* Events Card */}
-      <div className="flex flex-col items-center justify-center min-h-screen">
-        <h1 className="text-3xl font-bold mb-8">cards, acara acara di sini</h1>
+      <div
+        className="text-white p-5"
+        style={{
+          backgroundImage: `url(${cardBackground})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="flex flex-wrap justify-center md:justify-between items-center max-w-7xl mx-auto">
+          {[...Array(5)].map((_, index) => (
+            <div
+              key={index}
+              className="flex flex-col items-center bg-zinc-800 bg-opacity-70 p-4 rounded-lg m-2 w-full sm:w-auto"
+            >
+              <div className="relative flex items-center justify-center w-20 h-20 mt-2 mb-4 rounded-full bg-white text-black">
+                <div className="text-center">
+                  <div className="text-4xl font-bold">12</div>
+                  <div className="text-sm">MEI 2024</div>
+                </div>
+              </div>
+              <div className="mt-4 text-center">
+                <h3 className="font-semibold">Business Community</h3>
+                <p className="text-xs">12 Mei 2024 - 19 Mei 2024</p>
+                <p className="text-xs">12.00 PM - 15.00 PM</p>
+                <p className="text-xs">@KBC Surabaya</p>
+              </div>
+              <button className="mt-4 bg-yellow-600 text-white py-2 px-4 font-bold rounded hover:bg-yellow-700 hover:text-gray-200">
+                Register Here
+              </button>
+            </div>
+          ))}
+        </div>
+
+        <div className="text-center mt-6">
+          <button className="bg-white text-red-500 font-bold py-2 px-6 rounded hover:bg-red-500 hover:text-white">
+            See More Events
+          </button>
+        </div>
       </div>
+
       <Footer />
     </>
   );
