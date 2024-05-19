@@ -5,7 +5,7 @@ import {
   DisclosurePanel,
 } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navigation = [
@@ -22,23 +22,37 @@ function classNames(...classes) {
 }
 
 function Navbar() {
-  // eslint-disable-next-line no-unused-vars
-  const [activeItem, setActiveItem] = useState("");
+  const [isScrolled, setIsScrolled] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const isTop = scrollTop < 100;
+      setIsScrolled(!isTop);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const handleItemClick = (name) => {
-    setActiveItem(name);
     navigation.forEach((item) => {
       item.current = item.name === name;
     });
   };
 
   return (
-    <Disclosure as="nav" className="bg-gray-100 w-full z-10">
+    <Disclosure
+      as="nav"
+      className={`w-full z-10 sticky top-0 ${
+        isScrolled ? "bg-gray-100 bg-opacity-75" : "bg-gray-100"
+      }`}
+    >
       {({ open }) => (
         <>
           <div className="mx-auto px-2 md:px-6 lg:px-8">
             <div className="relative flex h-16 items-center justify-between">
-              {/* humburger */}
+              {/* Hamburger */}
               <div className="absolute inset-y-0 left-0 flex items-center md:hidden">
                 <DisclosureButton className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="absolute -inset-0.5" />
@@ -50,43 +64,50 @@ function Navbar() {
                   )}
                 </DisclosureButton>
               </div>
-              <div className="flex flex-1 items-center justify-center md:items-stretch md:justify-start">
-                <div className="flex flex-shrink-0 items-center">
-                  <Link to="/">
-                    <img
-                      className="h-10 w-auto justify-center"
-                      src="https://kbc.or.id/img/general/KBC-Logo_1594107681.png"
-                      alt="KBC Logo"
-                    />
+              {/* Logo for Mobile */}
+              <div className="flex items-center justify-center flex-shrink-0 md:hidden w-full">
+                <Link to="/">
+                  <img
+                    className="h-10 w-auto justify-center"
+                    src="https://kbc.or.id/img/general/KBC-Logo_1594107681.png"
+                    alt="KBC Logo"
+                  />
+                </Link>
+              </div>
+              {/* Logo for Web */}
+              <div className=" items-center justify-center flex-shrink-0 hidden md:block">
+                <Link to="/">
+                  <img
+                    className="h-10 w-auto justify-center"
+                    src="https://kbc.or.id/img/general/KBC-Logo_1594107681.png"
+                    alt="KBC Logo"
+                  />
+                </Link>
+              </div>
+              <div className="hidden md:block md:ml-auto">
+                <div className="flex space-x-4">
+                  {navigation.map((item) => (
+                    <NavLink
+                      key={item.name}
+                      to={item.link}
+                      onClick={() => handleItemClick(item.name)}
+                      className={classNames(
+                        item.current
+                          ? "bg-gray-900 text-white"
+                          : "text-gray-900 hover:bg-gray-700 hover:text-white",
+                        "rounded-md px-3 py-2 text-sm font-medium"
+                      )}
+                    >
+                      {item.name}
+                    </NavLink>
+                  ))}
+                  <Link to="/login">
+                    <button className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
+                      Login
+                    </button>
                   </Link>
                 </div>
-                {/* Navbar Web */}
-                <div className="hidden md:ml-auto md:block">
-                  <div className="flex space-x-4">
-                    {navigation.map((item) => (
-                      <NavLink
-                        key={item.name}
-                        to={item.link}
-                        onClick={() => handleItemClick(item.name)}
-                        className={classNames(
-                          item.current
-                            ? "bg-gray-900 text-white"
-                            : "text-gray-900 hover:bg-gray-700 hover:text-white",
-                          "rounded-md px-3 py-2 text-sm font-medium"
-                        )}
-                      >
-                        {item.name}
-                      </NavLink>
-                    ))}
-                    <Link to="/login">
-                      <button className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
-                        Login
-                      </button>
-                    </Link>
-                  </div>
-                </div>
               </div>
-              <div className="absolute inset-y-0 right-0 flex items-center pr-2 md:static md:inset-auto md:ml-6 md:pr-0"></div>
             </div>
           </div>
           {/* Navbar Mobile Panel */}
@@ -109,10 +130,11 @@ function Navbar() {
                       className={classNames(
                         item.current
                           ? "bg-gray-900 text-white"
-                          : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                          : "text-gray-500 hover:bg-gray-700 hover:text-white",
                         "block rounded-md px-3 py-2 text-base font-medium transition-colors duration-200"
                       )}
                     >
+                      {" "}
                       {item.name}
                     </DisclosureButton>
                   ))}

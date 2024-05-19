@@ -54,7 +54,7 @@ const Home = () => {
 
       {/* Total Alumni */}
       <div className="container mx-auto py-10">
-        <ul className="my-6 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 list-none">
+        <ul className="my-6 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 list-none">
           {alumniListItems}
         </ul>
       </div>

@@ -6,7 +6,7 @@ const CustomHeader = ({ title }) => {
   return (
     <div
       className="bg-cover bg-center h-screen flex flex-col justify-center items-center"
-      style={{ backgroundImage: `url(${header_background_custom})` }}
+      style={{ backgroundImage: `url(${header_background_custom})`, backgroundSize: "1440px 703px", }}
     >
       <div className="container flex flex-col items-center">
         <img className="h-60 mb-10" src={kbcLogo} alt="KBC Logo" />
