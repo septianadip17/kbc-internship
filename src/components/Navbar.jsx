@@ -44,7 +44,7 @@ function Navbar() {
   return (
     <Disclosure
       as="nav"
-      className={`w-full z-10 sticky top-0 ${
+      className={`w-full z-50 sticky top-0 ${
         isScrolled ? "bg-gray-100 bg-opacity-75" : "bg-gray-100"
       }`}
     >

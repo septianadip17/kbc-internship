@@ -4,19 +4,19 @@ import kbcLogo from "../assets/KBC_Logo.png";
 const Header = () => {
   return (
     <div
-      className="bg-center bg-no-repeat h-screen flex flex-col justify-center items-center"
+      className="relative h-screen w-screen flex flex-col justify-center items-center bg-center bg-no-repeat"
       style={{
         backgroundImage: `url(${header_background})`,
-        backgroundSize: "1440px 1030px",
+        backgroundSize: "cover",
+        backgroundPosition: "top center",
       }}
     >
-      <div className="container flex flex-col items-center">
+      <div className="relative z-10 container flex flex-col items-center pt-20 md:pt-32">
         <img className="h-60 mb-10" src={kbcLogo} alt="KBC Logo" />
-        <h1 className="mb-4 text-4xl font-extrabold text-white md:text-5xl lg:text-6xl text-center uppercase">
-          Welcome To <br />
-          Kingdom Business Community <br />
-          Surabaya
-        </h1>
+        <p className="mb-4 text-4xl font-extrabold text-white md:text-5xl lg:text-6xl text-center uppercase">
+          Welcome To <br className="hidden md:inline" /> Kingdom Business
+          Community <br className="hidden md:inline" /> Surabaya
+        </p>
       </div>
     </div>
   );

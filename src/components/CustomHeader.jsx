@@ -1,12 +1,15 @@
+import headerBackgroundCustom from '../assets/header-home-custom.png';
+import kbcLogo from '../assets/KBC_Logo.png';
 import PropTypes from 'prop-types';
-import header_background_custom from "../assets/header-home-custom.png";
-import kbcLogo from "../assets/KBC_Logo.png";
-
 const CustomHeader = ({ title }) => {
   return (
     <div
       className="bg-cover bg-center h-screen flex flex-col justify-center items-center"
-      style={{ backgroundImage: `url(${header_background_custom})`, backgroundSize: "1440px 703px", }}
+      style={{
+        backgroundImage: `url(${headerBackgroundCustom})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
     >
       <div className="container flex flex-col items-center">
         <img className="h-60 mb-10" src={kbcLogo} alt="KBC Logo" />

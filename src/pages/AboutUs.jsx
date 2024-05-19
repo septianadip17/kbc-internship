@@ -9,22 +9,24 @@ const AboutUs = () => {
       <Navbar />
       <CustomHeader title="ABOUT US" />
       {/* KBC Introduction */}
-      <div className="container p-6 mx-auto">
-        <h1 className="text-3xl font-bold text-center my-4">
-          KINGDOM BUSINESS COMMUNITY
-        </h1>
-        <p className="text-justify">
-          Kingdom Business Community (KBC) adalah sebuah gerakan moral dalam
-          dunia kerja berbentuk yayasan nirlaba dengan fokus untuk
-          memperlengkapi pebisnis & profesional dunia kerja untuk memiliki
-          ‘transformasi pola pikir’ dalam melakukan Bisnis / Pekerjaan dengan
-          Tujuan yang Mulia (tidak hanya orientasi profit) dan mempraktekkan
-          nilai spiritual dalam bekerja. KBC didirikan pada 14 Januari 2005 oleh
-          komunitas pebisnis & profesional di Jakarta (berawal dari 10 orang)
-          dan telah berkembang lebih dari 20.000 anggota di 7 kota (Jakarta,
-          Surabaya, Semarang, Jogja, Solo, Bali, Bandung) dengan lebih dari 200
-          mentor / pembimbing.
-        </p>
+      <div className="w-screen p-6 mx-0" style={{ backgroundColor: "#f6efdc" }}>
+        <div className="container mx-auto">
+          <h1 className="text-3xl font-bold text-center my-4">
+            KINGDOM BUSINESS COMMUNITY
+          </h1>
+          <p className="text-justify">
+            Kingdom Business Community (KBC) adalah sebuah gerakan moral dalam
+            dunia kerja berbentuk yayasan nirlaba dengan fokus untuk
+            memperlengkapi pebisnis & profesional dunia kerja untuk memiliki
+            ‘transformasi pola pikir’ dalam melakukan Bisnis / Pekerjaan dengan
+            Tujuan yang Mulia (tidak hanya orientasi profit) dan mempraktekkan
+            nilai spiritual dalam bekerja. KBC didirikan pada 14 Januari 2005
+            oleh komunitas pebisnis & profesional di Jakarta (berawal dari 10
+            orang) dan telah berkembang lebih dari 20.000 anggota di 7 kota
+            (Jakarta, Surabaya, Semarang, Jogja, Solo, Bali, Bandung) dengan
+            lebih dari 200 mentor / pembimbing.
+          </p>
+        </div>
       </div>
 
       {/* vision and mission */}
