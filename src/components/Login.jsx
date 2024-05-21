@@ -1,21 +1,31 @@
 import { Link } from "react-router-dom";
-import gambarKiri from "../assets/foto_ramai.png"
+import gambarKiri from "../assets/foto_ramai.png";
 
 const Login = () => {
   return (
     <div className="flex h-screen">
-      <div className="w-2/3">
-        <img src={gambarKiri} alt="gambar ramai" className="h-full w-full object-cover" />
+      <div className="w-full md:w-2/3 hidden md:block">
+        <img
+          src={gambarKiri}
+          alt="gambar ramai"
+          className="h-full w-full object-cover"
+        />
       </div>
-      <div className="w-1/3 flex items-center justify-center bg-gray-100">
-        <section className="flex flex-col justify-center items-center space-y-10 p-5 w-full max-w-sm">
+      <div className="w-full md:w-1/3 flex items-center justify-center bg-gray-100 md:bg-transparent relative">
+        <div
+          className="absolute inset-0 md:hidden bg-cover bg-center"
+          style={{ backgroundImage: `url(${gambarKiri})` }}
+        ></div>
+        <div className="flex flex-col justify-center items-center space-y-4 p-5 w-full max-w-sm bg-white bg-opacity-90 md:bg-opacity-100 z-10">
           <div className="text-center">
             <img
               src="https://kbc.or.id/img/general/KBC-Logo_1594107681.png"
-              alt="Logo KBC"
-              className="mx-auto mb-4"
+              alt="Sample image"
+              className="mx-auto size-40"
             />
-            <h1 className="text-3xl font-bold mb-4">LOGIN</h1>
+            <h1 className="text-2xl font-bold text-center md:hidden text-yellow-900">
+              Login
+            </h1>
           </div>
           <div className="w-full">
             <input
@@ -64,7 +74,7 @@ const Login = () => {
               </Link>
             </div>
           </div>
-        </section>
+        </div>
       </div>
     </div>
   );
