@@ -7,34 +7,58 @@ import twitterIcon from "../assets/social-network-icon/Twitter.png";
 
 const Footer = () => {
   const socialMediaIcons = [
-    { src: instagramIcon, alt: "Instagram", link: "https://www.instagram.com/" },
-    { src: whatsappIcon, alt: "WhatsApp", link: "https://www.whatsapp.com/" },
-    { src: youtubeIcon, alt: "YouTube", link: "https://www.youtube.com/" },
-    { src: linkedinIcon, alt: "LinkedIn", link: "https://www.linkedin.com/" },
-    { src: facebookIcon, alt: "Facebook", link: "https://www.facebook.com/" },
-    { src: twitterIcon, alt: "Twitter", link: "https://www.twitter.com/" },
+    {
+      src: instagramIcon,
+      alt: "Instagram",
+      link: "https://www.instagram.com/",
+    },
+    {
+      src: whatsappIcon,
+      alt: "WhatsApp",
+      link: "https://www.whatsapp.com/",
+    },
+    {
+      src: youtubeIcon,
+      alt: "YouTube",
+      link: "https://www.youtube.com/",
+    },
+    {
+      src: linkedinIcon,
+      alt: "LinkedIn",
+      link: "https://www.linkedin.com/",
+    },
+    {
+      src: facebookIcon,
+      alt: "Facebook",
+      link: "https://www.facebook.com/",
+    },
+    {
+      src: twitterIcon,
+      alt: "Twitter",
+      link: "https://www.twitter.com/",
+    },
   ];
 
   return (
-    <div className="bg-yellow-600 text-white py-5">
-      <h3 className="text-2xl font-black text-center mb-6">
-        KINGDOM BUSINESS COMMUNITY
-      </h3>
-
-      <div className="container mx-auto px-5">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="text-center md:text-left">
-            <h3 className="text-2xl font-bold mb-2">KBC Jawa Timur</h3>
-            <p>
-              Ruko Palm Square TF 5, Jl. Raya Taman Asri, Palem, Wadungasri,
-              Kec. Waru, Kabupaten Sidoarjo, Jawa Timur, 61256
-            </p>
+    <>
+      <div className="bg-yellow-600 py-5 text-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-6">
+            <h3 className="text-2xl font-black">KINGDOM BUSINESS COMMUNITY</h3>
           </div>
-
-          <div className="flex items-center justify-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {/* alamat */}
             <div className="text-center md:text-left">
-              <h3 className="text-2xl font-bold mb-2 text-center">Our Social Media</h3>
-              <div className="flex items-center gap-4">
+              <h3 className="text-2xl font-bold mb-2">KBC Jawa Timur</h3>
+              <p>
+                Ruko Palm Square TF 5, Jl. Raya Taman Asri, Palem, Wadungasri,
+                Kec. Waru, Kabupaten Sidoarjo, Jawa Timur, 61256
+              </p>
+            </div>
+            {/* sosial media */}
+            <div className="text-center">
+              <h3 className="text-2xl font-bold mb-2">Sosial Media</h3>
+              <div className="flex items-center justify-center gap-4">
                 {socialMediaIcons.map((icon, index) => (
                   <a
                     key={index}
@@ -51,22 +75,28 @@ const Footer = () => {
                 ))}
               </div>
             </div>
-          </div>
-
-          <div className="text-center md:text-right">
-            <h3 className="text-2xl font-bold mb-2">Hubungi Kami</h3>
-            <p>
-              <a href="https://wa.me/6285230456789" target="_blank">
-                <u>085230456789</u>
-              </a>
-            </p>
+            {/* nomer hp */}
+            <div className="text-center md:text-right">
+              <h3 className="text-2xl font-bold mb-2">Hubungi Kami</h3>
+              <p>
+                <a
+                  href="https://wa.me/6285230456789"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <u>085230456789</u>
+                </a>
+              </p>
+            </div>
           </div>
         </div>
+      <div className="col-start-1 col-end-7 mt-6">
+        <p className="text-center">
+          Copyright © 2024 Kingdom Business Community
+        </p>
       </div>
-
-      <hr className="my-6 border-white" />
-      <p className="text-center">Copyright © 2024 Kingdom Business Community</p>
-    </div>
+      </div>
+    </>
   );
 };
 

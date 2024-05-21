@@ -70,18 +70,19 @@ const AboutUs = () => {
 
       {/* Documentation */}
       <div className="container p-6 mx-auto mb-5">
-        <h1 className="text-3xl font-bold text-center my-4">DOCUMENTATION</h1>
-        <div className="flex justify-center gap-4">
-          {documentationImages.map((image, index) => (
-            <img
-              key={index}
-              src={image}
-              alt={`image ${index + 1}`}
-              className="h-64 w-auto object-cover"
-            />
-          ))}
-        </div>
-      </div>
+  <h1 className="text-3xl font-bold text-center my-4">DOCUMENTATION</h1>
+  <div className="flex flex-wrap justify-center gap-4">
+    {documentationImages.map((image, index) => (
+      <img
+        key={index}
+        src={image}
+        alt={`image ${index + 1}`}
+        className="w-full md:w-auto h-auto object-cover max-w-full"
+      />
+    ))}
+  </div>
+</div>
+
       <Footer />
     </>
   );
