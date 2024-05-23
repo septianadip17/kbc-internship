@@ -16,10 +16,7 @@ const AboutUs = () => {
       <CustomHeader title="ABOUT US" />
 
       {/* KBC Introduction */}
-      <div
-        className="w-full p-6 mx-auto"
-        style={{ backgroundColor: "#f6efdc" }}
-      >
+      <div className="w-full p-6 mx-auto">
         <div className="container mx-auto">
           <h1 className="text-3xl font-bold text-center my-4">
             KINGDOM BUSINESS COMMUNITY
@@ -70,18 +67,18 @@ const AboutUs = () => {
 
       {/* Documentation */}
       <div className="container p-6 mx-auto mb-5">
-  <h1 className="text-3xl font-bold text-center my-4">DOCUMENTATION</h1>
-  <div className="flex flex-wrap justify-center gap-4">
-    {documentationImages.map((image, index) => (
-      <img
-        key={index}
-        src={image}
-        alt={`image ${index + 1}`}
-        className="w-full md:w-auto h-auto object-cover max-w-full"
-      />
-    ))}
-  </div>
-</div>
+        <h1 className="text-3xl font-bold text-center my-4">DOCUMENTATION</h1>
+        <div className="flex flex-wrap justify-center gap-4">
+          {documentationImages.map((image, index) => (
+            <img
+              key={index}
+              src={image}
+              alt={`image ${index + 1}`}
+              className="w-full md:w-auto h-auto object-cover max-w-full"
+            />
+          ))}
+        </div>
+      </div>
 
       <Footer />
     </>
