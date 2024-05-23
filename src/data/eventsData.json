@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "title": "Seminar Kepemimpinan Rohani",
+    "status": "Sedang Berlangsung",
+    "price": "Rp. 200.000",
+    "date": "Jumat, 10 Mei 2024",
+    "description": "Pelajari prinsip-prinsip kepemimpinan rohani dan bagaimana menerapkannya dalam kehidupan sehari-hari. Seminar ini akan membahas cara menjadi pemimpin yang bijaksana dan penuh integritas.",
+    "image": "https://placehold.co/150x150"
+  },
+  {
+    "id": 2,
+    "title": "Retret Rohani: Menguatkan Iman dalam Krisis",
+    "status": "Akan Datang",
+    "price": "GRATIS",
+    "date": "Sabtu, 15 Juni 2024",
+    "description": "Retret ini dirancang untuk memperkuat iman melalui sesi ibadah, renungan, dan pembicaraan kelompok. Dapatkan dorongan dan dukungan untuk menghadapi tantangan dalam hidup.",
+    "image": "https://placehold.co/150x150"
+  },
+  {
+    "id": 3,
+    "title": "Konferensi Keuangan Pribadi dengan Pendekatan Rohani",
+    "status": "Selesai",
+    "price": "Rp. 150.000",
+    "date": "Rabu, 20 Maret 2024",
+    "description": "Dapatkan tips dan trik tentang manajemen keuangan pribadi dengan pendekatan rohani yang efektif dalam konferensi ini. Pelajari cara mengelola anggaran, mengurangi utang, dan merencanakan masa depan keuangan Anda.",
+    "image": "https://placehold.co/150x150"
+  },
+  {
+    "id": 4,
+    "title": "Workshop: Membangun Hubungan yang Kuat dengan Tuhan",
+    "status": "Sedang Berlangsung",
+    "price": "Rp. 250.000",
+    "date": "Selasa, 25 April 2024",
+    "description": "Pelajari cara memperdalam hubungan pribadi dengan Tuhan melalui doa, meditasi, dan studi Alkitab. Workshop ini akan membantu Anda membangun fondasi iman yang kuat.",
+    "image": "https://placehold.co/150x150"
+  },
+  {
+    "id": 5,
+    "title": "Konferensi Kesehatan Mental dan Rohani",
+    "status": "Akan Datang",
+    "price": "Rp. 100.000",
+    "date": "Minggu, 30 Juli 2024",
+    "description": "Diskusikan pentingnya kesehatan mental dan rohani, serta strategi untuk merawatnya dalam konferensi ini. Dapatkan wawasan dari para ahli dan cerita inspiratif dari individu yang telah mengatasi tantangan kesehatan mental.",
+    "image": "https://placehold.co/150x150"
+  },
+  {
+    "id": 6,
+    "title": "Pelatihan Pelayanan Rohani di Komunitas",
+    "status": "Selesai",
+    "price": "Rp. 180.000",
+    "date": "Kamis, 1 Februari 2024",
+    "description": "Pelatihan ini akan membantu Anda mempersiapkan diri untuk melayani dalam komunitas Anda dengan kasih dan kepedulian. Pelajari prinsip-prinsip dasar pelayanan dan strategi untuk membuat dampak yang positif.",
+    "image": "https://placehold.co/150x150"
+  }
+]

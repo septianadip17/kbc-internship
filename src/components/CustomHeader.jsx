@@ -16,6 +16,7 @@ const CustomHeader = ({ title }) => {
         <h1 className="mb-4 text-4xl font-extrabold text-white md:text-5xl lg:text-6xl text-center uppercase">
           {title}
         </h1>
+        
       </div>
     </div>
   );
