@@ -3,12 +3,18 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import CustomHeader from "../components/CustomHeader";
 import articlesData from "../data/articles.json";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 const Article = () => {
   const { header, mainArticles, articleList } = articlesData;
 
-  const ArticleCard = ({ title, description, image, linkArticle, buttonText }) => (
+  const ArticleCard = ({
+    title,
+    description,
+    image,
+    linkArticle,
+    buttonText,
+  }) => (
     <div className="border p-4 mb-4 flex">
       <div className="w-1/4">
         <img src={image} alt="Article Image" className="w-full h-auto" />
@@ -16,7 +22,7 @@ const Article = () => {
       <div className="text-justify w-3/4 pl-4">
         <h3 className="font-bold">{title}</h3>
         <p className="text-sm mt-2">{description}</p>
-        <Link to={linkArticle}>
+        <Link to={`/articles/${linkArticle}`}>
           <button className="mt-2 bg-yellow-500 hover:bg-yellow-700 text-white px-4 py-2 rounded">
             {buttonText}
           </button>
@@ -65,6 +71,7 @@ const Article = () => {
             title={mainArticle.title}
             description={mainArticle.description}
             image={mainArticle.image}
+            linkArticle={mainArticle.linkArticle}
             buttonText={mainArticle.buttonText}
           />
         ))}
@@ -79,6 +86,7 @@ const Article = () => {
             />
           ))}
         </div>
+        <Outlet />
       </div>
       <Footer />
     </>
