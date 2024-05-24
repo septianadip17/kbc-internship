@@ -1,6 +1,7 @@
 import headerBackgroundCustom from '../assets/header-home-custom.png';
 import kbcLogo from '../assets/KBC_Logo.png';
 import PropTypes from 'prop-types';
+
 const CustomHeader = ({ title }) => {
   return (
     <div
@@ -16,7 +17,6 @@ const CustomHeader = ({ title }) => {
         <h1 className="mb-4 text-4xl font-extrabold text-white md:text-5xl lg:text-6xl text-center uppercase">
           {title}
         </h1>
-        
       </div>
     </div>
   );

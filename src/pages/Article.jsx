@@ -8,35 +8,31 @@ import axios from "axios";
 
 const Article = () => {
   const { header, mainArticles, articleList } = articlesData;
-  axios.get('https://3e5bed0c-4b72-44ae-998c-2db2519a1843.mock.pstmn.io/articles')
-
-  .then(response => {
-
-    // Handle the response data
-    console.log("berhasil")
-    console.log(response.data);
-
-  })
-
-  .catch(error => {
-
-    
-    // Handle any errors
-
-    console.error('Error:', error);
-
-  });
-
+  
+  axios
+    .get("https://3e5bed0c-4b72-44ae-998c-2db2519a1843.mock.pstmn.io/articles")
+    .then((response) => {
+      // Handle the response data
+      console.log("berhasil");
+      console.log(response.data);
+    })
+    .catch((error) => {
+      // Handle any errors
+      console.error("Error:", error);
+    });
 
   const ArticleCard = ({ title, description, image, id, buttonText }) => (
-    <div className="border p-4 mb-4 flex">
-      <div className="w-1/4">
-        <img src={image} alt="Article Image" className="w-full h-auto" />
+    <div className="border p-4 mb-4 flex flex-col md:flex-row">
+      <div className="w-full md:w-1/4 mb-4 md:mb-0 md:mr-4">
+        <img
+          src={image}
+          alt="Article Image"
+          className="w-full h-auto md:order-last"
+        />
       </div>
-      <div className="text-justify w-3/4 pl-4">
+      <div className="w-full md:w-3/4">
         <h3 className="font-bold">{title}</h3>
         <p className="text-sm mt-2">{description}</p>
-
         <Link to={`/articles/${id}`}>
           <button className="mt-2 bg-yellow-500 hover:bg-yellow-700 text-white px-4 py-2 rounded">
             {buttonText}
