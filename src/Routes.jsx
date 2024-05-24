@@ -1,16 +1,14 @@
-// src/routes.js
 import Home from "./pages/Home";
 import AboutUs from "./pages/AboutUs";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 import Event from "./pages/Event";
 import Article from "./pages/Article";
-import Article1 from "./pages/articles/Article1";
-import Article2 from "./pages/articles/Article2";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import ForgotPassword from "./components/ForgotPassword";
 import NotFound from "./pages/NotFound";
+import CustomArticle from "./pages/articles/CustomArticle";
 
 const routes = [
   { path: "/", element: <Home /> },
@@ -18,14 +16,8 @@ const routes = [
   { path: "/gallery", element: <Gallery /> },
   { path: "/contact", element: <Contact /> },
   { path: "/events", element: <Event /> },
-  {
-    path: "/articles",
-    element: <Article />,
-    children: [
-      { path: "article1", element: <Article1 /> },
-      { path: "article2", element: <Article2 /> },
-    ],
-  },
+  { path: "/articles", element: <Article /> },
+  { path: "/articles/:id", element: <CustomArticle /> },
   { path: "/login", element: <Login /> },
   { path: "/register", element: <Register /> },
   { path: "/recovery", element: <ForgotPassword /> },
