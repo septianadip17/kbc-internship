@@ -4,11 +4,11 @@ import { Link, useParams } from "react-router-dom";
 import articlesData from "../../data/articles.json";
 import NotFound from "../NotFound";
 
-const CustomArticle = () => {
-  const { id } = useParams();
-  // Untuk mencari data artcle berdasarkan id
-  const article = articlesData.mainArticles.find(
-    (mainArticle) => mainArticle.id === parseInt(id)
+const MoreArticle = () => {
+  const { idList } = useParams();
+
+  const article = articlesData.articleList.find(
+    (articleList) => articleList.id === parseInt(idList)
   );
   if (!article) {
     return <NotFound />;
@@ -40,4 +40,4 @@ const CustomArticle = () => {
   );
 };
 
-export default CustomArticle;
+export default MoreArticle;

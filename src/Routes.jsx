@@ -9,6 +9,7 @@ import Register from "./components/Register";
 import ForgotPassword from "./components/ForgotPassword";
 import NotFound from "./pages/NotFound";
 import CustomArticle from "./pages/articles/CustomArticle";
+import MoreArticle from "./pages/articles/MoreArticle";
 
 const routes = [
   { path: "/", element: <Home /> },
@@ -18,6 +19,7 @@ const routes = [
   { path: "/events", element: <Event /> },
   { path: "/articles", element: <Article /> },
   { path: "/articles/:id", element: <CustomArticle /> },
+  { path: "/articles/:idList", element: <MoreArticle /> },
   { path: "/login", element: <Login /> },
   { path: "/register", element: <Register /> },
   { path: "/recovery", element: <ForgotPassword /> },

@@ -8,7 +8,7 @@ import axios from "axios";
 
 const Article = () => {
   const { header, mainArticles, articleList } = articlesData;
-  
+
   axios
     .get("https://3e5bed0c-4b72-44ae-998c-2db2519a1843.mock.pstmn.io/articles")
     .then((response) => {
@@ -50,10 +50,12 @@ const Article = () => {
     buttonText: PropTypes.string.isRequired,
   };
 
-  const ArticleSummary = ({ title, author, image }) => (
+  const ArticleSummary = ({ title, author, image, idList }) => (
     <div className="border p-4 flex">
       <div className="w-1/4">
-        <img src={image} alt="Article Image" className="w-full h-auto mb-2" />
+        <Link to={`/articles/${idList}`}>
+          <img src={image} alt="Article Image" className="w-full h-auto mb-2" />
+        </Link>
       </div>
       <div className="text-justify w-3/4 pl-4 ">
         <h3 className="font-bold text-sm">{title}</h3>
@@ -66,6 +68,7 @@ const Article = () => {
     title: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
+    idList: PropTypes.string.isRequired,
   };
 
   return (
@@ -88,12 +91,13 @@ const Article = () => {
         ))}
         <h2 className="text-xl font-bold mb-4">Read it again!</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {articleList.map((article, index) => (
+          {articleList.map((articleList, index) => (
             <ArticleSummary
               key={index}
-              title={article.title}
-              author={article.author}
-              image={article.image}
+              title={articleList.title}
+              author={articleList.author}
+              image={articleList.image}
+              idList={articleList.idList}
             />
           ))}
         </div>

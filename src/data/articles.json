@@ -3,7 +3,7 @@
   "mainArticles": [{
       "id": 1,
       "title": "Mengoptimalkan Strategi Bisnis di Era Digital: Kunci Sukses di Tahun 2024",
-      "description": "Dalam dunia bisnis yang semakin terhubung secara digital, penting bagi para pengusaha dan pemimpin untuk memahami strategi bisnis baru yang relevan dengan era digital. Artikel ini membahas kunci sukses dalam mengoptimalkan strategi bisnis di era digital, mulai dari transformasi model usaha, e-commerce, hingga analitik undefined untuk pengambilan keputusan yang lebih baik.",
+      "description": "Dalam dunia bisnis yang semakin terhubung secara digital, penting bagi para pengusaha dan pemimpin untuk memahami strategi bisnis baru yang relevan dengan era digital. Artikel ini membahas kunci sukses dalam mengoptimalkan strategi bisnis di era digital, mulai dari transformasi model usaha, e-commerce, hingga analitik untuk pengambilan keputusan yang lebih baik.",
       "image": "https://placehold.co/100x150",
       "buttonText": "Baca Sekarang"
     },
@@ -16,32 +16,44 @@
     }
   ],
   "articleList": [{
+      "idList": 1,
       "title": "Transformasi Digital untuk Usaha Kecil dan Menengah",
+      "description": "Dalam era digital yang terus berkembang, transformasi digital menjadi suatu keharusan bagi usaha kecil dan menengah untuk bertahan dan tumbuh. Artikel ini membahas berbagai strategi dan teknologi yang dapat diterapkan untuk menghadapi tantangan dan memanfaatkan peluang dalam transformasi digital.",
       "author": "Dr. Rina Wijayanti - Pakar Strategi Digital dan Dosen Universitas Jaya",
       "image": "https://placehold.co/100x100"
     },
     {
-      "title": "Transformasi Digital untuk Usaha Kecil dan Menengah",
+      "idList": 2,
+      "title": "Strategi Pemasaran Digital yang Efektif: Mengoptimalkan Online Presence",
+      "description": "Pemasaran digital menjadi kunci dalam meraih kesuksesan di era digital ini. Artikel ini menjelaskan strategi pemasaran digital yang efektif untuk mengoptimalkan online presence, membangun brand awareness, dan meningkatkan penjualan.",
       "author": "Dr. Rina Wijayanti - Pakar Strategi Digital dan Dosen Universitas Jaya",
       "image": "https://placehold.co/100x100"
     },
     {
-      "title": "Transformasi Digital untuk Usaha Kecil dan Menengah",
+      "idList": 3,
+      "title": "Pentingnya Keamanan Data dalam Transformasi Digital",
+      "description": "Dalam perubahan menuju transformasi digital, keamanan data menjadi isu krusial yang harus diperhatikan. Artikel ini membahas pentingnya keamanan data dalam konteks transformasi digital serta strategi untuk melindungi data dari ancaman cyber.",
       "author": "Dr. Rina Wijayanti - Pakar Strategi Digital dan Dosen Universitas Jaya",
       "image": "https://placehold.co/100x100"
     },
     {
-      "title": "Transformasi Digital untuk Usaha Kecil dan Menengah",
+      "idList": 4,
+      "title": "Meningkatkan Produktivitas dengan Teknologi Cloud",
+      "description": "Teknologi cloud computing telah membawa perubahan signifikan dalam cara kerja dan operasional perusahaan. Artikel ini menjelaskan bagaimana teknologi cloud dapat digunakan untuk meningkatkan produktivitas dan efisiensi dalam berbagai aspek bisnis.",
       "author": "Dr. Rina Wijayanti - Pakar Strategi Digital dan Dosen Universitas Jaya",
       "image": "https://placehold.co/100x100"
     },
     {
-      "title": "Transformasi Digital untuk Usaha Kecil dan Menengah",
+      "idList": 5,
+      "title": "Strategi Pengembangan Aplikasi Mobile yang Sukses",
+      "description": "Aplikasi mobile telah menjadi bagian penting dari kehidupan sehari-hari. Artikel ini membahas strategi pengembangan aplikasi mobile yang sukses, mulai dari perencanaan, pengembangan, hingga pemasaran aplikasi untuk mencapai kesuksesan di pasar yang kompetitif.",
       "author": "Dr. Rina Wijayanti - Pakar Strategi Digital dan Dosen Universitas Jaya",
       "image": "https://placehold.co/100x100"
     },
     {
-      "title": "Transformasi Digital untuk Usaha Kecil dan Menengah",
+      "idList": 6,
+      "title": "Strategi Pengembangan Aplikasi Mobile yang Sukses",
+      "description": "Aplikasi mobile telah menjadi bagian penting dari kehidupan sehari-hari. Artikel ini membahas strategi pengembangan aplikasi mobile yang sukses, mulai dari perencanaan, pengembangan, hingga pemasaran aplikasi untuk mencapai kesuksesan di pasar yang kompetitif.",
       "author": "Dr. Rina Wijayanti - Pakar Strategi Digital dan Dosen Universitas Jaya",
       "image": "https://placehold.co/100x100"
     }
