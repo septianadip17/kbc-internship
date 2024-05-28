@@ -31,6 +31,11 @@ const Register = () => {
             <input
               className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded"
               type="text"
+              placeholder="Nama"
+            />
+            <input
+              className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded"
+              type="text"
               placeholder="Email Address"
             />
             <input
