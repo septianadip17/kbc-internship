@@ -6,9 +6,14 @@ import NotFound from "../NotFound";
 
 const MoreArticle = () => {
   const { idList } = useParams();
+  // console.log(idList);
+  // console.log(articlesData.articleList);
 
   const article = articlesData.articleList.find(
-    (articleList) => articleList.id === parseInt(idList)
+    (articleList) => {
+      // console.log(articleList)
+      articleList.id === parseInt(idList)
+    }
   );
   if (!article) {
     return <NotFound />;
@@ -27,8 +32,8 @@ const MoreArticle = () => {
           />
         </div>
         <p className="text-zinc-7000 text-justify">{article.description}</p>
-        <div className="flex justify-center"> {/* Memindahkan tombol ke tengah */}
-          <Link to="/articles">
+        <div className="flex justify-center">
+          <Link to="/articles/list">
             <button className="bg-yellow-500 hover:bg-yellow-700 text-white px-4 py-2 rounded">
               Back
             </button>

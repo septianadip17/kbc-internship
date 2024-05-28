@@ -27,7 +27,7 @@ const CustomArticle = () => {
           />
         </div>
         <p className="text-zinc-7000 text-justify">{article.description}</p>
-        <div className="flex justify-center"> {/* Memindahkan tombol ke tengah */}
+        <div className="flex justify-center"> 
           <Link to="/articles">
             <button className="bg-yellow-500 hover:bg-yellow-700 text-white px-4 py-2 rounded">
               Back

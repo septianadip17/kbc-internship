@@ -5,21 +5,28 @@ import CustomHeader from "../components/CustomHeader";
 import articlesData from "../data/articles.json";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { useState, useEffect } from "react";
 
 const Article = () => {
   const { header, mainArticles, articleList } = articlesData;
 
-  axios
-    .get("https://3e5bed0c-4b72-44ae-998c-2db2519a1843.mock.pstmn.io/articles")
-    .then((response) => {
-      // Handle the response data
-      console.log("berhasil");
-      console.log(response.data);
-    })
-    .catch((error) => {
-      // Handle any errors
-      console.error("Error:", error);
-    });
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(
+        "https://d486ab47-019b-4bb4-acf7-0db10ab21add.mock.pstmn.io/articles"
+      )
+      .then((response) => {
+        // Handle the response data
+        setData(response.data);
+        console.log(response.data.header);
+      })
+      .catch((error) => {
+        // Handle any errors
+        console.error("Error:", error);
+      });
+  }, []); // The empty array ensures this effect runs only once
 
   const ArticleCard = ({ title, description, image, id, buttonText }) => (
     <div className="border p-4 mb-4 flex flex-col md:flex-row">
@@ -46,14 +53,14 @@ const Article = () => {
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     buttonText: PropTypes.string.isRequired,
   };
 
   const ArticleSummary = ({ title, author, image, idList }) => (
     <div className="border p-4 flex">
       <div className="w-1/4">
-        <Link to={`/articles/${idList}`}>
+        <Link to={`/articles/list/${idList}`}>
           <img src={image} alt="Article Image" className="w-full h-auto mb-2" />
         </Link>
       </div>
@@ -68,7 +75,7 @@ const Article = () => {
     title: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
-    idList: PropTypes.string.isRequired,
+    idList: PropTypes.number.isRequired,
   };
 
   return (
@@ -91,13 +98,13 @@ const Article = () => {
         ))}
         <h2 className="text-xl font-bold mb-4">Read it again!</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {articleList.map((articleList, index) => (
+          {articleList.map((article, index) => (
             <ArticleSummary
               key={index}
-              title={articleList.title}
-              author={articleList.author}
-              image={articleList.image}
-              idList={articleList.idList}
+              title={article.title}
+              author={article.author}
+              image={article.image}
+              idList={article.idList}
             />
           ))}
         </div>
