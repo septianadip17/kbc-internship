@@ -34,7 +34,7 @@ const Register = () => {
               placeholder="Nama"
             />
             <input
-              className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded"
+              className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"
               type="text"
               placeholder="Email Address"
             />
@@ -52,6 +52,36 @@ const Register = () => {
               className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"
               type="password"
               placeholder="Konfirmasi Password"
+            />
+            <input
+              className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"
+              type="text"
+              placeholder="Regency"
+            />
+            <input
+              className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"
+              type="text"
+              placeholder="Village"
+            />
+            <input
+              className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"
+              type="text"
+              placeholder="District"
+            />
+            <input
+              className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"
+              type="text"
+              placeholder="Kode Pos"
+            />
+            <input
+              className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"
+              type="text"
+              placeholder="Detail"
+            />
+            <input
+              className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"
+              type="text"
+              placeholder="Member Bisnis"
             />
             <div className="text-center mt-4">
               <button

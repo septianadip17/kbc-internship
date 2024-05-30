@@ -10,6 +10,7 @@ import { useState, useEffect } from "react";
 const Article = () => {
   const { header, mainArticles, articleList } = articlesData;
 
+  // eslint-disable-next-line no-unused-vars
   const [data, setData] = useState([]);
 
   useEffect(() => {

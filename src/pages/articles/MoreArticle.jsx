@@ -9,12 +9,10 @@ const MoreArticle = () => {
   // console.log(idList);
   // console.log(articlesData.articleList);
 
-  const article = articlesData.articleList.find(
-    (articleList) => {
-      // console.log(articleList)
-      articleList.id === parseInt(idList)
-    }
-  );
+  const article = articlesData.articleList.find((articleList) => {
+    // console.log(articleList)
+    articleList.id === parseInt(idList);
+  });
   if (!article) {
     return <NotFound />;
   }

@@ -3,8 +3,8 @@ import gambarKiri from "../assets/foto_ramai.png";
 
 const Login = () => {
   return (
-    <div className="flex h-screen">
-      <div className="w-full md:w-2/3 hidden md:block">
+    <div className="flex h-screen flex-col md:flex-row">
+      <div className="md:w-2/3 hidden md:block">
         <img
           src={gambarKiri}
           alt="gambar ramai"
@@ -16,7 +16,7 @@ const Login = () => {
           className="absolute inset-0 md:hidden bg-cover bg-center"
           style={{ backgroundImage: `url(${gambarKiri})` }}
         ></div>
-        <div className="flex flex-col justify-center items-center space-y-4 p-5 w-full max-w-sm bg-white bg-opacity-90 md:bg-opacity-100 z-10">
+        <div className="flex flex-col justify-center items-center space-y-4 p-5 w-full max-w-sm bg-white bg-opacity-90 md:bg-opacity-100 z-10 h-full md:h-auto">
           <div className="text-center">
             <img
               src="https://kbc.or.id/img/general/KBC-Logo_1594107681.png"
