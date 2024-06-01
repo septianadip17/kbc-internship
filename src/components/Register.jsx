@@ -18,11 +18,13 @@ const Register = () => {
         ></div>
         <div className="flex flex-col justify-center items-center space-y-4 p-5 w-full max-w-sm bg-white bg-opacity-90 md:bg-opacity-100 z-10 h-full md:h-auto">
           <div className="text-center">
-            <img
-              src="https://kbc.or.id/img/general/KBC-Logo_1594107681.png"
-              alt="Sample image"
-              className="mx-auto size-40"
-            />
+            <Link to="/">
+              <img
+                src="https://kbc.or.id/img/general/KBC-Logo_1594107681.png"
+                alt="Logo image"
+                className="mx-auto size-40"
+              />
+            </Link>
             <h1 className="text-2xl font-bold text-center md:hidden text-yellow-900">
               Sign Up
             </h1>
@@ -36,7 +38,7 @@ const Register = () => {
             <input
               className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"
               type="text"
-              placeholder="Email Address"
+              placeholder="Email"
             />
             <input
               className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"
@@ -85,7 +87,7 @@ const Register = () => {
             />
             <div className="text-center mt-4">
               <button
-                className="mt-4 bg-yellow-900 hover:bg-yellow-600 px-6 py-2 text-white uppercase rounded text-xs tracking-wider"
+                className="w-full mt-4 bg-yellow-600 hover:bg-yellow-900 px-6 py-2 text-white uppercase rounded text-xs tracking-wider"
                 type="submit"
               >
                 Daftar
