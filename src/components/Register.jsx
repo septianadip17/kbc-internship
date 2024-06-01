@@ -42,7 +42,7 @@ const Register = () => {
             />
             <input
               className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"
-              type="text"
+              type="tel"
               placeholder="No. Telepon / Whatsapp"
             />
             <input
@@ -58,17 +58,17 @@ const Register = () => {
             <input
               className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"
               type="text"
-              placeholder="Regency"
+              placeholder="Kabupaten / Kota"
             />
             <input
               className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"
               type="text"
-              placeholder="Village"
+              placeholder="Kecamatan"
             />
             <input
               className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"
               type="text"
-              placeholder="District"
+              placeholder="Kelurahan"
             />
             <input
               className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"

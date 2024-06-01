@@ -41,7 +41,7 @@ const Footer = () => {
 
   return (
     <>
-      <div className="bg-yellow-600 py-5 text-white">
+      <div className=" py-5 text-white" style={{ backgroundColor: "#927111" }}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-6">
             <h3 className="text-2xl font-black">KINGDOM BUSINESS COMMUNITY</h3>
@@ -91,6 +91,7 @@ const Footer = () => {
           </div>
         </div>
       <div className="col-start-1 col-end-7 mt-6">
+        <hr className="border-gray-300 md:hidden"/>
         <p className="text-center">
           Copyright © 2024 Kingdom Business Community
         </p>
