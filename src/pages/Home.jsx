@@ -1,3 +1,7 @@
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import CountUp from "react-countup";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
@@ -6,11 +10,18 @@ import cardBackground from "../assets/card-background.png";
 import { Link } from "react-router-dom";
 
 const Home = () => {
+  // Inisialisasi AOS
+  useEffect(() => {
+    AOS.init({ duration: 1500 });
+  }, []);
+
   // data alumni
   const alumniCount = 6;
   const alumniListItems = Array.from({ length: alumniCount }, (_, index) => (
     <li key={index} className="font-bold text-2xl text-center p-4">
-      <h2>1.000</h2>
+      <h2>
+        <CountUp end={1000} duration={2} />
+      </h2>
       <h2>ALUMNI SUKSES SEJATI</h2>
     </li>
   ));
@@ -20,11 +31,11 @@ const Home = () => {
       <Navbar />
       <Header />
       {/* About Us */}
-      <div className="container mx-auto py-10">
+      <div className="container mx-auto py-10" data-aos="fade-up">
         <div className="grid md:grid-cols-12 gap-6">
           <div className="md:col-span-8 text-justify m-10">
             <h2 className="text-3xl font-bold pb-2">ONE FAMILY</h2>
-            <p>
+            <p className="mb-6">
               Kingdom Business Community (KBC) adalah sebuah gerakan moral dalam
               dunia kerja berbentuk yayasan nirlaba dengan fokus untuk
               memperlengkapi pebisnis & profesional dunia kerja untuk memiliki
@@ -46,14 +57,15 @@ const Home = () => {
             <img
               src={fotoRamai}
               alt="foto ramai"
-              className="align-center mx-auto"
+              className="align-center mx-auto size-96"
+              data-aos="fade-left"
             />
           </div>
         </div>
       </div>
 
       {/* Total Alumni */}
-      <div className="container mx-auto py-10">
+      <div className="container mx-auto py-10" data-aos="fade-up">
         <ul className="my-6 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 list-none">
           {alumniListItems}
         </ul>
@@ -67,12 +79,15 @@ const Home = () => {
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
+        data-aos="fade-up"
       >
         <div className="flex flex-wrap justify-center md:justify-between items-center max-w-7xl mx-auto">
           {[...Array(5)].map((_, index) => (
             <div
               key={index}
               className="flex flex-col items-center bg-zinc-800 bg-opacity-70 p-4 rounded-lg m-2 w-full sm:w-auto"
+              data-aos="zoom-in"
+              data-aos-delay={index * 100}
             >
               <div className="relative flex items-center justify-center w-20 h-20 mt-2 mb-4 rounded-full bg-white text-black">
                 <div className="text-center">
