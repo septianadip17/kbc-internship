@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import CountUp from "react-countup";
+import { useInView } from "react-intersection-observer";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
@@ -12,16 +13,20 @@ import { Link } from "react-router-dom";
 const Home = () => {
   // Inisialisasi AOS
   useEffect(() => {
-    AOS.init({ duration: 1500 });
+    AOS.init({ duration: 1000 });
   }, []);
+
+  // Gunakan useInView untuk mendeteksi elemen dalam viewport
+  const { ref, inView } = useInView({
+    triggerOnce: true, // Trigger hanya sekali
+    threshold: 0.1, // Berapa banyak elemen yang terlihat sebelum trigger
+  });
 
   // data alumni
   const alumniCount = 6;
   const alumniListItems = Array.from({ length: alumniCount }, (_, index) => (
     <li key={index} className="font-bold text-2xl text-center p-4">
-      <h2>
-        <CountUp end={1000} duration={2} />
-      </h2>
+      <h2>{inView ? <CountUp end={1000} duration={2} /> : "0"}</h2>
       <h2>ALUMNI SUKSES SEJATI</h2>
     </li>
   ));
@@ -65,7 +70,7 @@ const Home = () => {
       </div>
 
       {/* Total Alumni */}
-      <div className="container mx-auto py-10" data-aos="fade-up">
+      <div className="container mx-auto py-10" ref={ref} data-aos="fade-up">
         <ul className="my-6 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 list-none">
           {alumniListItems}
         </ul>
