@@ -2,6 +2,11 @@ import { Link } from "react-router-dom";
 import gambarKiri from "../assets/foto_ramai.png";
 
 const Login = () => {
+  const inputClass =
+    "text-sm w-full px-4 py-2 border border-solid bg-gray-100 border-gray-300 rounded-full mt-4";
+  const buttonClass =
+    "bg-yellow-600 hover:bg-yellow-900 px-4 py-2 text-white uppercase rounded-full text-xs tracking-wider w-full mt-4";
+
   return (
     <div className="flex h-screen flex-col md:flex-row">
       <div className="md:w-2/3 hidden md:block">
@@ -30,13 +35,9 @@ const Login = () => {
             </h1>
           </div>
           <div className="w-full">
+            <input className={inputClass} type="text" placeholder="Email" />
             <input
-              className="text-sm w-full px-4 py-2 border border-solid bg-gray-200 border-gray-300 rounded"
-              type="text"
-              placeholder="Email"
-            />
-            <input
-              className="text-sm w-full px-4 py-2 border border-solid bg-gray-200 border-gray-300 rounded mt-4"
+              className={inputClass}
               type="password"
               placeholder="Password"
             />
@@ -53,10 +54,7 @@ const Login = () => {
               </Link>
             </div>
             <div className="text-center mt-4">
-              <button
-                className="mr-4 bg-yellow-600 hover:bg-yellow-900 px-4 py-2 text-white uppercase rounded text-xs tracking-wider w-full"
-                type="submit"
-              >
+              <button className={buttonClass} type="submit">
                 Login
               </button>
             </div>

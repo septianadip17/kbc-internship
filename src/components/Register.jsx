@@ -1,7 +1,46 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import gambarKiri from "../assets/login-register-foto.png";
 
 const Register = () => {
+  const [showAdditionalFields, setShowAdditionalFields] = useState(false);
+  const [formValues, setFormValues] = useState({
+    kabupatenKota: "",
+    kecamatan: "",
+    kelurahan: "",
+    kodePos: "",
+    detail: "",
+    memberBisnis: "",
+  });
+
+  const options = {
+    kabupatenKota: ["Kabupaten A", "Kabupaten B", "Kabupaten C"],
+    kecamatan: ["Kecamatan A", "Kecamatan B", "Kecamatan C"],
+    kelurahan: ["Kelurahan A", "Kelurahan B", "Kelurahan C"],
+    kodePos: ["12345", "67890", "11223"],
+  };
+
+  const inputClass =
+    "text-sm text-gray-700 w-full bg-gray-100 px-4 py-2 border border-solid border-gray-300 rounded-full mt-4";
+  const buttonClass =
+    "w-full mt-4 bg-yellow-600 hover:bg-yellow-900 px-6 py-2 text-white uppercase rounded-full text-xs tracking-wider";
+
+  const handleDaftarClick = () => {
+    setShowAdditionalFields(true);
+  };
+
+  const handleSubmitClick = () => {
+    alert("Selamat anda telah terdaftar, mohon cek email anda");
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormValues((prevValues) => ({
+      ...prevValues,
+      [name]: value,
+    }));
+  };
+
   return (
     <div className="flex h-screen flex-col md:flex-row">
       <div className="md:w-2/3 hidden md:block">
@@ -30,67 +69,107 @@ const Register = () => {
             </h1>
           </div>
           <div className="w-full">
-            <input
-              className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded"
-              type="text"
-              placeholder="Nama"
-            />
-            <input
-              className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"
-              type="text"
-              placeholder="Email"
-            />
-            <input
-              className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"
-              type="tel"
-              placeholder="No. Telepon / Whatsapp"
-            />
-            <input
-              className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"
-              type="password"
-              placeholder="Buat Password"
-            />
-            <input
-              className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"
-              type="password"
-              placeholder="Konfirmasi Password"
-            />
-            <input
-              className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"
-              type="text"
-              placeholder="Kabupaten / Kota"
-            />
-            <input
-              className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"
-              type="text"
-              placeholder="Kecamatan"
-            />
-            <input
-              className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"
-              type="text"
-              placeholder="Kelurahan"
-            />
-            <input
-              className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"
-              type="text"
-              placeholder="Kode Pos"
-            />
-            <input
-              className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"
-              type="text"
-              placeholder="Detail"
-            />
-            <input
-              className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"
-              type="text"
-              placeholder="Member Bisnis"
-            />
+            {!showAdditionalFields ? (
+              <>
+                <input className={inputClass} type="text" placeholder="Nama" />
+                <input className={inputClass} type="text" placeholder="Email" />
+                <input
+                  className={inputClass}
+                  type="tel"
+                  placeholder="No. Telepon / Whatsapp"
+                />
+                <input
+                  className={inputClass}
+                  type="password"
+                  placeholder="Buat Password"
+                />
+                <input
+                  className={inputClass}
+                  type="password"
+                  placeholder="Konfirmasi Password"
+                />
+              </>
+            ) : (
+              <>
+                <select
+                  name="kabupatenKota"
+                  className={inputClass}
+                  value={formValues.kabupatenKota}
+                  onChange={handleChange}
+                >
+                  <option value="">Kabupaten / Kota</option>
+                  {options.kabupatenKota.map((option) => (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </select>
+                <select
+                  name="kecamatan"
+                  className={inputClass}
+                  value={formValues.kecamatan}
+                  onChange={handleChange}
+                >
+                  <option value="">Kecamatan</option>
+                  {options.kecamatan.map((option) => (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </select>
+                <select
+                  name="kelurahan"
+                  className={inputClass}
+                  value={formValues.kelurahan}
+                  onChange={handleChange}
+                >
+                  <option value="">Kelurahan</option>
+                  {options.kelurahan.map((option) => (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </select>
+                <select
+                  name="kodePos"
+                  className={inputClass}
+                  value={formValues.kodePos}
+                  onChange={handleChange}
+                >
+                  <option value="">Kode Pos</option>
+                  {options.kodePos.map((option) => (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </select>
+                <input
+                  name="detail"
+                  className={inputClass}
+                  type="text"
+                  placeholder="Detail"
+                  value={formValues.detail}
+                  onChange={handleChange}
+                />
+                <input
+                  name="memberBisnis"
+                  className={inputClass}
+                  type="text"
+                  placeholder="Member Bisnis"
+                  value={formValues.memberBisnis}
+                  onChange={handleChange}
+                />
+              </>
+            )}
             <div className="text-center mt-4">
               <button
-                className="w-full mt-4 bg-yellow-600 hover:bg-yellow-900 px-6 py-2 text-white uppercase rounded text-xs tracking-wider"
-                type="submit"
+                className={buttonClass}
+                type="button"
+                onClick={
+                  showAdditionalFields ? handleSubmitClick : handleDaftarClick
+                }
               >
-                Daftar
+                {showAdditionalFields ? "Selesai" : "Daftar"}
               </button>
             </div>
             <div className="mt-4 font-semibold text-sm text-slate-500 text-center">
