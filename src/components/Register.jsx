@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import gambarKiri from "../assets/login-register-foto.png";
-
 const Register = () => {
   const [showAdditionalFields, setShowAdditionalFields] = useState(false);
   const [formValues, setFormValues] = useState({
@@ -93,7 +92,7 @@ const Register = () => {
               <>
                 <select
                   name="kabupatenKota"
-                  className={inputClass}
+                  className="text-sm text-gray-700 w-full bg-gray-100 px-4 py-2 border border-solid border-gray-300 rounded-full mt-4"
                   value={formValues.kabupatenKota}
                   onChange={handleChange}
                 >
@@ -147,7 +146,7 @@ const Register = () => {
                   name="detail"
                   className={inputClass}
                   type="text"
-                  placeholder="Detail"
+                  placeholder="Detail Alamat (Cth. Nama Jalan, No. Rumah, dsb)"
                   value={formValues.detail}
                   onChange={handleChange}
                 />
@@ -161,6 +160,7 @@ const Register = () => {
                 />
               </>
             )}
+
             <div className="text-center mt-4">
               <button
                 className={buttonClass}
