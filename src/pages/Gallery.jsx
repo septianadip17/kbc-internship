@@ -5,7 +5,8 @@ import CustomHeader from "../components/CustomHeader";
 
 const imageGridClass = "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4";
 const imageClass = "w-full h-auto";
-const linkClass = "text-blue-600 mt-2 inline-block text-end";
+const linkClass =
+  "text-blue-600 mt-2 inline-block text-end hover:text-blue-800 transition-colors duration-300";
 
 const BizcomEvent = ({ year, images }) => {
   return (
@@ -16,8 +17,8 @@ const BizcomEvent = ({ year, images }) => {
           {images.map((image, index) => (
             <img
               key={index}
-              src={image}
-              alt={`Bizcom ${year} Image ${index + 1}`}
+              src={image.src}
+              alt={image.alt}
               className={imageClass}
             />
           ))}
@@ -34,7 +35,12 @@ const BizcomEvent = ({ year, images }) => {
 
 BizcomEvent.propTypes = {
   year: PropTypes.number.isRequired,
-  images: PropTypes.arrayOf(PropTypes.string).isRequired,
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      src: PropTypes.string.isRequired,
+      alt: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };
 
 const Gallery = () => {
@@ -42,25 +48,52 @@ const Gallery = () => {
     {
       year: 2022,
       images: [
-        "https://placehold.co/300x200?text=2022+Image+1",
-        "https://placehold.co/300x200?text=2022+Image+2",
-        "https://placehold.co/300x200?text=2022+Image+3",
+        {
+          src: "https://source.unsplash.com/300x200/?nature",
+          alt: "Image 1",
+        },
+        {
+          src: "https://source.unsplash.com/300x200/?landscape",
+          alt: "Image 2",
+        },
+        {
+          src: "https://source.unsplash.com/300x200/?water",
+          alt: "Image 3",
+        },
       ],
     },
     {
       year: 2023,
       images: [
-        "https://placehold.co/300x200?text=2023+Image+1",
-        "https://placehold.co/300x200?text=2023+Image+2",
-        "https://placehold.co/300x200?text=2023+Image+3",
+        {
+          src: "https://source.unsplash.com/300x200/?mountain",
+          alt: "Image 1",
+        },
+        {
+          src: "https://source.unsplash.com/300x200/?forest",
+          alt: "Image 2",
+        },
+        {
+          src: "https://source.unsplash.com/300x200/?sunset",
+          alt: "Image 3",
+        },
       ],
     },
     {
       year: 2024,
       images: [
-        "https://placehold.co/300x200?text=2024+Image+1",
-        "https://placehold.co/300x200?text=2024+Image+2",
-        "https://placehold.co/300x200?text=2024+Image+3",
+        {
+          src: "https://source.unsplash.com/300x200/?beach",
+          alt: "Image 1",
+        },
+        {
+          src: "https://source.unsplash.com/300x200/?city",
+          alt: "Image 2",
+        },
+        {
+          src: "https://source.unsplash.com/300x200/?night",
+          alt: "Image 3",
+        },
       ],
     },
   ];
