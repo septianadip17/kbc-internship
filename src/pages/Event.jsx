@@ -122,7 +122,7 @@ const Event = () => {
       <Navbar />
       <CustomHeader title="Events" />
       <div className="min-h-screen p-4">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="relative mb-8 flex">
             <input
               type="text"
@@ -144,11 +144,11 @@ const Event = () => {
         <hr className="border-gray-300 border-4 h-full w-full m-4" />
 
         {/* Event Terdekat */}
-        <div className="min-h-screen p-4">
+        <div className="max-w-6xl mx-auto">
           <h2 className="text-center text-2xl font-bold mb-4">
             EVENT TERDEKAT
           </h2>
-          <div className="mb-8 flex justify-center">
+          <div className="mb-8 flex justify-center px-auto">
             <GoogleMap src="https://maps.google.com/maps?q=636+5th+Ave%2C+New+York&t=&z=13&ie=UTF8&iwloc=&output=embed" />
           </div>
           <div className="relative space-y-8">
