@@ -1,12 +1,11 @@
-[
-  {
+[{
     "id": 1,
     "title": "Mengoptimalkan Strategi Bisnis di Era Digital: Kunci Sukses di Tahun 2024",
     "status": "Sedang Berlangsung",
     "price": "Rp. 300.000",
     "date": "Senin, 27 Mei 2024",
     "description": "Dalam dunia bisnis yang semakin terhubung secara digital, penting bagi para pengusaha dan pemimpin bisnis untuk terus beradaptasi dan mengembangkan strategi yang relevan dengan perkembangan teknologi. Webinar ini dirancang untuk memberikan wawasan mendalam tentang bagaimana mengoptimalkan strategi bisnis di era digital, mulai dari pemanfaatan media sosial, e-commerce, hingga analisis data untuk pengambilan keputusan yang lebih baik.",
-    "image": "https://placehold.co/100x150"
+    "image": "https://images.unsplash.com/photo-1597124019721-bc0c990b9104?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "id": 2,
@@ -15,7 +14,7 @@
     "price": "GRATIS",
     "date": "Sabtu, 15 Juni 2024",
     "description": "Retret ini dirancang untuk memperkuat iman melalui sesi ibadah, renungan, dan pembicaraan kelompok. Dapatkan dorongan dan dukungan untuk menghadapi tantangan dalam hidup.",
-    "image": "https://placehold.co/100x150"
+    "image": "https://images.unsplash.com/photo-1535796806375-346835ccbb85?q=80&w=2063&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "id": 3,
@@ -24,7 +23,7 @@
     "price": "Rp. 150.000",
     "date": "Rabu, 20 Maret 2024",
     "description": "Dapatkan tips dan trik tentang manajemen keuangan pribadi dengan pendekatan rohani yang efektif dalam konferensi ini. Pelajari cara mengelola anggaran, mengurangi utang, dan merencanakan masa depan keuangan Anda.",
-    "image": "https://placehold.co/100x150"
+    "image": "https://images.unsplash.com/photo-1566749373625-23ba1b19c514?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "id": 4,
@@ -33,7 +32,7 @@
     "price": "Rp. 250.000",
     "date": "Selasa, 25 April 2024",
     "description": "Pelajari cara memperdalam hubungan pribadi dengan Tuhan melalui doa, meditasi, dan studi Alkitab. Workshop ini akan membantu Anda membangun fondasi iman yang kuat.",
-    "image": "https://placehold.co/100x150"
+    "image": "https://images.unsplash.com/photo-1592965826498-1fc50855f376?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "id": 5,
@@ -42,7 +41,7 @@
     "price": "Rp. 100.000",
     "date": "Minggu, 30 Juli 2024",
     "description": "Diskusikan pentingnya kesehatan mental dan rohani, serta strategi untuk merawatnya dalam konferensi ini. Dapatkan wawasan dari para ahli dan cerita inspiratif dari individu yang telah mengatasi tantangan kesehatan mental.",
-    "image": "https://placehold.co/100x150"
+    "image": "https://plus.unsplash.com/premium_photo-1680965942284-38fbf394d71f?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "id": 6,
@@ -51,6 +50,6 @@
     "price": "Rp. 180.000",
     "date": "Kamis, 1 Februari 2024",
     "description": "Pelatihan ini akan membantu Anda mempersiapkan diri untuk melayani dalam komunitas Anda dengan kasih dan kepedulian. Pelajari prinsip-prinsip dasar pelayanan dan strategi untuk membuat dampak yang positif.",
-    "image": "https://placehold.co/100x150"
+    "image": "https://images.unsplash.com/photo-1596084467303-42ae46b9a64a?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   }
 ]

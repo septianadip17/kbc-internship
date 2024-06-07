@@ -4,6 +4,29 @@ import Footer from "../components/Footer";
 import CustomHeader from "../components/CustomHeader";
 import eventsData from "../data/eventsData.json";
 
+const tailwindClasses = {
+  container: "min-h-screen p-4",
+  contentWrapper: "max-w-7xl mx-auto",
+  searchWrapper: "relative mb-8 flex",
+  searchInput:
+    "w-full p-3 pl-10 pr-20 rounded-lg border border-zinc-300 dark:border-zinc-700 focus:outline-none focus:ring-2 focus:ring-yellow-500",
+  searchButton:
+    "ml-2 bg-yellow-600 hover:bg-yellow-500 text-white px-4 py-2 rounded-lg",
+  eventCard: "bg-white p-6 rounded-lg shadow-md mb-6 flex flex-col sm:flex-row",
+  eventImage: "w-full sm:w-36 h-36 bg-zinc-300 rounded-lg mb-4 sm:mb-0 sm:mr-6",
+  eventTitle: "text-xl font-bold mb-2",
+  eventTagsWrapper:
+    "grid grid-cols-2 gap-1 sm:flex sm:items-center sm:space-x-2 mb-4",
+  eventTag: "bg-yellow-500 text-white px-3 py-1 rounded-full text-sm",
+  eventPrice:
+    "bg-zinc-200 dark:bg-zinc-700 text-zinc-800 dark:text-zinc-200 px-3 py-1 rounded-full text-sm",
+  eventDate:
+    "bg-zinc-200 dark:bg-zinc-700 text-zinc-800 dark:text-zinc-200 px-3 py-1 rounded-full text-sm",
+  eventDescription: "text-zinc-700 text-justify mb-4 flex-grow",
+  registerButton:
+    "bg-yellow-600 hover:bg-yellow-500 text-white px-4 py-2 rounded-lg w-full mt-auto",
+};
+
 const Event = () => {
   const [events, setEvents] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -24,47 +47,42 @@ const Event = () => {
     <>
       <Navbar />
       <CustomHeader title="Events" />
-      <div className="min-h-screen p-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="relative mb-8 flex">
+      <div className={tailwindClasses.container}>
+        <div className={tailwindClasses.contentWrapper}>
+          <div className={tailwindClasses.searchWrapper}>
             <input
               type="text"
               value={searchTerm}
               onChange={handleSearch}
               placeholder="Cari Event disini"
-              className="w-full p-3 pl-10 pr-20 rounded-lg border border-zinc-300 dark:border-zinc-700 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+              className={tailwindClasses.searchInput}
             />
-            <button className="ml-2 bg-yellow-600 hover:bg-yellow-500 text-white px-4 py-2 rounded-lg">
-              Cari
-            </button>
+            <button className={tailwindClasses.searchButton}>Cari</button>
           </div>
           {filteredEvents.map((event) => (
-            <div
-              key={event.id}
-              className="bg-white p-6 rounded-lg shadow-md mb-6 flex flex-col sm:flex-row"
-            >
+            <div key={event.id} className={tailwindClasses.eventCard}>
               <img
                 src={event.image}
                 alt="Event Image"
-                className="w-full sm:w-36 h-36 bg-zinc-300 rounded-lg mb-4 sm:mb-0 sm:mr-6"
+                className={tailwindClasses.eventImage}
               />
               <div className="flex flex-col flex-grow">
-                <h2 className="text-xl font-bold mb-2">{event.title}</h2>
-                <div className="flex items-center flex-wrap space-x-2 mb-4">
-                  <span className="bg-yellow-500 text-white px-3 py-1 rounded-full text-sm">
+                <h2 className={tailwindClasses.eventTitle}>{event.title}</h2>
+                <div className={tailwindClasses.eventTagsWrapper}>
+                  <span className={tailwindClasses.eventTag}>
                     {event.status}
                   </span>
-                  <span className="bg-zinc-200 dark:bg-zinc-700 text-zinc-800 dark:text-zinc-200 px-3 py-1 rounded-full text-sm">
+                  <span className={tailwindClasses.eventPrice}>
                     {event.price}
                   </span>
-                  <span className="bg-zinc-200 dark:bg-zinc-700 text-zinc-800 dark:text-zinc-200 px-3 py-1 rounded-full text-sm">
+                  <span className={tailwindClasses.eventDate}>
                     {event.date}
                   </span>
                 </div>
-                <p className="text-zinc-700 text-justify mb-4 flex-grow">
+                <p className={tailwindClasses.eventDescription}>
                   {event.description}
                 </p>
-                <button className="bg-yellow-600 hover:bg-yellow-500 text-white px-4 py-2 rounded-lg w-full mt-auto">
+                <button className={tailwindClasses.registerButton}>
                   Registrasi Sekarang
                 </button>
               </div>
