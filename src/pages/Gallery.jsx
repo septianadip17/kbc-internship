@@ -41,6 +41,7 @@ BizcomEvent.propTypes = {
     PropTypes.shape({
       src: PropTypes.string.isRequired,
       alt: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
     })
   ).isRequired,
   onImageClick: PropTypes.func.isRequired,
@@ -58,14 +59,17 @@ const Gallery = () => {
         {
           src: "https://source.unsplash.com/300x200/?nature",
           alt: "Image 1",
+          description: "Beautiful nature scenery",
         },
         {
           src: "https://source.unsplash.com/300x200/?landscape",
           alt: "Image 2",
+          description: "Stunning landscape view",
         },
         {
           src: "https://source.unsplash.com/300x200/?water",
           alt: "Image 3",
+          description: "Peaceful water scene",
         },
       ],
     },
@@ -75,14 +79,17 @@ const Gallery = () => {
         {
           src: "https://source.unsplash.com/300x200/?mountain",
           alt: "Image 1",
+          description: "Majestic mountain range",
         },
         {
           src: "https://source.unsplash.com/300x200/?forest",
           alt: "Image 2",
+          description: "Lush forest landscape",
         },
         {
           src: "https://source.unsplash.com/300x200/?sunset",
           alt: "Image 3",
+          description: "Beautiful sunset view",
         },
       ],
     },
@@ -92,14 +99,17 @@ const Gallery = () => {
         {
           src: "https://source.unsplash.com/300x200/?beach",
           alt: "Image 1",
+          description: "Relaxing beach scene",
         },
         {
           src: "https://source.unsplash.com/300x200/?city",
           alt: "Image 2",
+          description: "Vibrant cityscape",
         },
         {
           src: "https://source.unsplash.com/300x200/?night",
           alt: "Image 3",
+          description: "Serene night sky",
         },
       ],
     },
@@ -147,27 +157,16 @@ const Gallery = () => {
           <div className="relative bg-white rounded-lg shadow-lg p-4 max-w-3xl">
             <button
               onClick={closeModal}
-              className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+              className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-2xl"
             >
               &times;
             </button>
-            <div className="relative flex items-center">
+            <div className="relative flex items-center justify-between">
               <button
                 onClick={showPreviousImage}
-                className="absolute left-0 text-gray-500 hover:text-gray-700"
+                className="text-gray-500 hover:text-gray-700 text-2xl mx-2"
               >
-                <svg
-                  className="w-5 mr-2"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z"
-                    clipRule="evenodd"
-                  ></path>
-                </svg>
+                &larr;
               </button>
               <img
                 src={modalImages[currentImageIndex].src}
@@ -176,24 +175,16 @@ const Gallery = () => {
               />
               <button
                 onClick={showNextImage}
-                className="absolute right-0 text-gray-500 hover:text-gray-700"
+                className="text-gray-500 hover:text-gray-700 text-2xl mx-2"
               >
-                <svg
-                  className="w-5 ml-2"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-                    clipRule="evenodd"
-                  ></path>
-                </svg>
+                &rarr;
               </button>
             </div>
             <div className="text-center mt-4">
-              <p>{modalImages[currentImageIndex].alt}</p>
+              <p className="font-bold">{modalImages[currentImageIndex].alt}</p>
+              <p className="text-sm text-gray-600">
+                {modalImages[currentImageIndex].description}
+              </p>
             </div>
           </div>
         </div>
