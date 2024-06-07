@@ -16,7 +16,7 @@ const Home = () => {
     AOS.init({ duration: 1000 });
   }, []);
 
-  // Gunakan useInView untuk mendeteksi elemen dalam viewport
+  // useInView untuk mendeteksi elemen dalam viewport
   const { ref, inView } = useInView({
     triggerOnce: true, // Trigger hanya sekali
     threshold: 0.1, // Berapa banyak elemen yang terlihat sebelum trigger

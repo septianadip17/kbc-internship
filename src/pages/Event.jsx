@@ -4,47 +4,6 @@ import Footer from "../components/Footer";
 import CustomHeader from "../components/CustomHeader";
 import eventsData from "../data/eventsData.json";
 
-const tailwindClasses = {
-  container: "min-h-screen p-4 ",
-  contentWrapper: "max-w-5xl mx-auto",
-  searchWrapper: "relative mb-8 flex",
-  searchInput:
-    "w-full p-3 pl-10 pr-20 rounded-lg border border-zinc-300 dark:border-zinc-700 focus:outline-none focus:ring-2 focus:ring-yellow-500",
-  searchButton:
-    "ml-2 bg-yellow-600 hover:bg-yellow-500 text-white px-4 py-2 rounded-lg",
-  eventCard: "bg-white p-6 rounded-lg shadow-md mb-6 flex flex-col sm:flex-row",
-  eventImage: "w-full sm:w-36 h-36 bg-zinc-300 rounded-lg mb-4 sm:mb-0 sm:mr-6",
-  eventTitle: "text-xl font-bold mb-2",
-  eventTagsWrapper:
-    "grid grid-cols-2 gap-1 sm:flex sm:items-center sm:space-x-2 mb-4",
-  eventTag: "bg-yellow-500 text-white px-3 py-1 rounded-full text-sm",
-  eventPrice:
-    "bg-zinc-200 dark:bg-zinc-700 text-zinc-800 dark:text-zinc-200 px-3 py-1 rounded-full text-sm",
-  eventDate:
-    "bg-zinc-200 dark:bg-zinc-700 text-zinc-800 dark:text-zinc-200 px-3 py-1 rounded-full text-sm",
-  eventDescription: "text-zinc-700 text-justify mb-4 flex-grow",
-  registerButton:
-    "bg-yellow-600 hover:bg-yellow-500 text-white px-4 py-2 rounded-lg w-full mt-auto",
-  timelineContainer: "relative space-y-8",
-  timelineLine: "absolute left-5 top-10 bottom-0 w-px bg-yellow-500",
-  timelineItem: "flex items-start space-x-4",
-  timelineNumberContainer: "flex-shrink-0",
-  timelineNumber:
-    "flex items-center justify-center w-10 h-10 bg-yellow-500 text-white rounded-full z-10",
-  timelineContent: "flex-1",
-  timelineImage: "w-full h-auto mb-4",
-  timelineTitle: "text-xl font-bold mb-2",
-  timelineTags: "flex items-center space-x-4 mb-2",
-  timelineTag:
-    "bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded",
-  timelinePrice:
-    "bg-zinc-100 text-zinc-800 text-xs font-semibold px-2.5 py-0.5 rounded",
-  timelineDate:
-    "bg-yellow-100 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded",
-  timelineDescription: "text-zinc-700 mb-4",
-  timelineLink: "text-yellow-500 font-semibold",
-};
-
 const Event = () => {
   const [events, setEvents] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -65,42 +24,47 @@ const Event = () => {
     <>
       <Navbar />
       <CustomHeader title="Events" />
-      <div className={tailwindClasses.container}>
-        <div className={tailwindClasses.contentWrapper}>
-          <div className={tailwindClasses.searchWrapper}>
+      <div className="min-h-screen p-4">
+        <div className="max-w-5xl mx-auto">
+          <div className="relative mb-8 flex">
             <input
               type="text"
               value={searchTerm}
               onChange={handleSearch}
               placeholder="Cari Event disini"
-              className={tailwindClasses.searchInput}
+              className="w-full p-3 pl-10 pr-20 rounded-lg border border-zinc-300 dark:border-zinc-700 focus:outline-none focus:ring-2 focus:ring-yellow-500"
             />
-            <button className={tailwindClasses.searchButton}>Cari</button>
+            <button className="ml-2 bg-yellow-600 hover:bg-yellow-500 text-white px-4 py-2 rounded-lg">
+              Cari
+            </button>
           </div>
           {filteredEvents.map((event) => (
-            <div key={event.id} className={tailwindClasses.eventCard}>
+            <div
+              key={event.id}
+              className="bg-white p-6 rounded-lg shadow-md mb-6 flex flex-col sm:flex-row"
+            >
               <img
                 src={event.image}
                 alt="Event Image"
-                className={tailwindClasses.eventImage}
+                className="w-full sm:w-36 h-36 bg-zinc-300 rounded-lg mb-4 sm:mb-0 sm:mr-6"
               />
               <div className="flex flex-col flex-grow">
-                <h2 className={tailwindClasses.eventTitle}>{event.title}</h2>
-                <div className={tailwindClasses.eventTagsWrapper}>
-                  <span className={tailwindClasses.eventTag}>
+                <h2 className="text-xl font-bold mb-2">{event.title}</h2>
+                <div className="grid grid-cols-2 gap-1 sm:flex sm:items-center sm:space-x-2 mb-4">
+                  <span className="bg-yellow-500 text-white px-3 py-1 rounded-full text-sm">
                     {event.status}
                   </span>
-                  <span className={tailwindClasses.eventPrice}>
+                  <span className="bg-zinc-200 dark:bg-zinc-700 text-zinc-800 dark:text-zinc-200 px-3 py-1 rounded-full text-sm">
                     {event.price}
                   </span>
-                  <span className={tailwindClasses.eventDate}>
+                  <span className="bg-zinc-200 dark:bg-zinc-700 text-zinc-800 dark:text-zinc-200 px-3 py-1 rounded-full text-sm">
                     {event.date}
                   </span>
                 </div>
-                <p className={tailwindClasses.eventDescription}>
+                <p className="text-zinc-700 text-justify mb-4 flex-grow">
                   {event.description}
                 </p>
-                <button className={tailwindClasses.registerButton}>
+                <button className="bg-yellow-600 hover:bg-yellow-500 text-white px-4 py-2 rounded-lg w-full mt-auto">
                   Registrasi Sekarang
                 </button>
               </div>
@@ -109,59 +73,83 @@ const Event = () => {
         </div>
       </div>
       {/* Garis Horizontal */}
-      <div className="container">
-        <hr className="border-gray-300 border-4 h-full w-full m-4" />
-      </div>
+
+      <hr className="border-gray-300 border-4 h-full w-full m-4" />
+
       {/* Event Terdekat */}
-      <div className="max-w-7xl mx-auto p-4">
+      <div className="min-h-screen p-4">
         <h2 className="text-center text-2xl font-bold mb-4">EVENT TERDEKAT</h2>
-        <div className="mb-8">
-          <img
-            src="https://placehold.co/800x400"
-            alt="Map of Surabaya"
-            className="w-full h-auto"
-          />
+        <div className="mb-8 flex justify-center">
+          <div className="mapouter">
+            <div className="gmap_canvas">
+              <iframe
+                width="820"
+                height="560"
+                id="gmap_canvas"
+                src="https://maps.google.com/maps?q=636+5th+Ave%2C+New+York&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                frameBorder="0"
+                scrolling="no"
+                marginHeight="0"
+                marginWidth="0"
+              ></iframe>
+            </div>
+            <style>{`
+              .mapouter {
+                position: relative;
+                text-align: right;
+                height: 560px;
+                width: 820px;
+              }
+              .gmap_canvas {
+                overflow: hidden;
+                background: none !important;
+                height: 560px;
+                width: 820px;
+              }
+            `}</style>
+          </div>
         </div>
-        <div className={tailwindClasses.timelineContainer}>
-          <div className={tailwindClasses.timelineLine}></div>
-          {[1, 2].map((item, index) => (
-            <div key={index} className={tailwindClasses.timelineItem}>
-              <div className={tailwindClasses.timelineNumberContainer}>
-                <div className={tailwindClasses.timelineNumber}>{item}</div>
-              </div>
-              <div className={tailwindClasses.timelineContent}>
-                <img
-                  src="https://placehold.co/150x100"
-                  alt="Event Image"
-                  className={tailwindClasses.timelineImage}
-                />
-                <h3 className={tailwindClasses.timelineTitle}>
-                  Mengoptimalkan Strategi Bisnis di Era Digital: Kunci Sukses di
-                  Tahun 2024
-                </h3>
-                <div className={tailwindClasses.timelineTags}>
-                  <span className={tailwindClasses.timelineTag}>
-                    Sedang Berlangsung
-                  </span>
-                  <span className={tailwindClasses.timelinePrice}>
-                    Rp. 300.000
-                  </span>
-                  <span className={tailwindClasses.timelineDate}>
-                    Senin, 29 April 2024
-                  </span>
+        <div className="relative space-y-8">
+          <div className="absolute left-5 top-10 bottom-0 w-px bg-yellow-500 "></div>
+          {filteredEvents.slice(0, 3).map((event, index) => (
+            <div key={event.id} className="flex items-start space-x-4">
+              <div className="flex-shrink-0">
+                <div className="flex items-center justify-center w-10 h-10 bg-yellow-500 text-white rounded-full z-10">
+                  {index + 1}
                 </div>
-                <p className={tailwindClasses.timelineDescription}>
-                  Dalam dunia bisnis yang semakin terhubung secara digital,
-                  penting bagi para profesional untuk memiliki strategi yang
-                  efektif dalam menghadapi perubahan yang cepat dan tantangan
-                  yang kompleks. Webinar ini dirancang untuk memberikan wawasan
-                  mendalam tentang bagaimana mengoptimalkan strategi bisnis di
-                  era digital, termasuk penggunaan teknologi terbaru, analisis
-                  undefined untuk pengambilan keputusan yang lebih baik.
-                </p>
-                <a href="#" className={tailwindClasses.timelineLink}>
-                  Lihat Lokasi di Maps
-                </a>
+              </div>
+              <div className="flex-1">
+                <div
+                  key={event.id}
+                  className="bg-white p-6 rounded-lg shadow-md mb-6 flex flex-col sm:flex-row"
+                >
+                  <img
+                    src={event.image}
+                    alt="Event Image"
+                    className="w-full sm:w-36 h-36 bg-zinc-300 rounded-lg mb-4 sm:mb-0 sm:mr-6"
+                  />
+                  <div className="flex flex-col flex-grow ">
+                    <h2 className="text-xl font-bold mb-2">{event.title}</h2>
+                    <div className="grid grid-cols-2 gap-1 sm:flex sm:items-center sm:space-x-2 mb-4">
+                      <span className="bg-yellow-500 text-white px-3 py-1 rounded-full text-sm">
+                        {event.status}
+                      </span>
+                      <span className="bg-zinc-200 dark:bg-zinc-700 text-zinc-800 dark:text-zinc-200 px-3 py-1 rounded-full text-sm">
+                        {event.price}
+                      </span>
+                      <span className="bg-zinc-200 dark:bg-zinc-700 text-zinc-800 dark:text-zinc-200 px-3 py-1 rounded-full text-sm">
+                        {event.date}
+                      </span>
+                    </div>
+                    <p className="text-zinc-700 text-justify mb-4 flex-grow">
+                      {event.description}
+                    </p>
+                    <button className="bg-yellow-600 hover:bg-yellow-500 text-white px-4 py-2 rounded-lg w-full mt-auto">
+                      Lihat Lokasi di Maps
+                    </button>
+                  </div>
+                </div>
+              
               </div>
             </div>
           ))}
