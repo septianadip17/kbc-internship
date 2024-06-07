@@ -90,9 +90,9 @@ const Event = () => {
           ))}
         </div>
       </div>
-      
+
       {/* Event Terdekat */}
-      <hr className="border-gray-500 size-10 h-full w-full m-4" />
+      <hr className="border-gray-300 border-4 h-full w-full m-4" />
       <div className="max-w-7xl mx-auto p-4">
         <h2 className="text-center text-2xl font-bold mb-4">EVENT TERDEKAT</h2>
         <div className="mb-8">
@@ -102,10 +102,11 @@ const Event = () => {
             className="w-full h-auto"
           />
         </div>
-        <div className="space-y-8">
+        <div className="relative space-y-8">
+          <div className="absolute left-5 top-10 bottom-0 w-px bg-yellow-500"></div>
           <div className="flex items-start space-x-4">
             <div className="flex-shrink-0">
-              <div className="flex items-center justify-center w-10 h-10 bg-yellow-500 text-white rounded-full">
+              <div className="flex items-center justify-center w-10 h-10 bg-yellow-500 text-white rounded-full z-10">
                 1
               </div>
             </div>
@@ -146,7 +147,7 @@ const Event = () => {
           </div>
           <div className="flex items-start space-x-4">
             <div className="flex-shrink-0">
-              <div className="flex items-center justify-center w-10 h-10 bg-yellow-500 text-white rounded-full">
+              <div className="flex items-center justify-center w-10 h-10 bg-yellow-500 text-white rounded-full z-10">
                 2
               </div>
             </div>
