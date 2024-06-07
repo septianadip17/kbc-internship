@@ -18,7 +18,9 @@ const Contact = () => {
         <p className="text-center  mb-6">
           Contact us regarding any concerns or inquiries
         </p>
-        <form className="px-24">
+        <form className="px-4 md:px-24">
+          {" "}
+          {/* Added responsive padding */}
           <div className="mb-4">
             <input type="text" placeholder="Nama" className={inputClasses} />
           </div>
