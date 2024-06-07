@@ -90,6 +90,103 @@ const Event = () => {
           ))}
         </div>
       </div>
+      
+      {/* Event Terdekat */}
+      <hr className="border-gray-500 size-10 h-full w-full m-4" />
+      <div className="max-w-7xl mx-auto p-4">
+        <h2 className="text-center text-2xl font-bold mb-4">EVENT TERDEKAT</h2>
+        <div className="mb-8">
+          <img
+            src="https://placehold.co/800x400"
+            alt="Map of Surabaya"
+            className="w-full h-auto"
+          />
+        </div>
+        <div className="space-y-8">
+          <div className="flex items-start space-x-4">
+            <div className="flex-shrink-0">
+              <div className="flex items-center justify-center w-10 h-10 bg-yellow-500 text-white rounded-full">
+                1
+              </div>
+            </div>
+            <div className="flex-1">
+              <img
+                src="https://placehold.co/150x100"
+                alt="Event Image"
+                className="w-full h-auto mb-4"
+              />
+              <h3 className="text-xl font-bold mb-2">
+                Mengoptimalkan Strategi Bisnis di Era Digital: Kunci Sukses di
+                Tahun 2024
+              </h3>
+              <div className="flex items-center space-x-4 mb-2">
+                <span className="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded">
+                  Sedang Berlangsung
+                </span>
+                <span className="bg-zinc-100 text-zinc-800 text-xs font-semibold px-2.5 py-0.5 rounded">
+                  Rp. 300.000
+                </span>
+                <span className="bg-yellow-100 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded">
+                  Senin, 29 April 2024
+                </span>
+              </div>
+              <p className="text-zinc-700 mb-4">
+                Dalam dunia bisnis yang semakin terhubung secara digital,
+                penting bagi para profesional untuk memiliki strategi yang
+                efektif dalam menghadapi perubahan yang cepat dan tantangan yang
+                kompleks. Webinar ini dirancang untuk memberikan wawasan
+                mendalam tentang bagaimana mengoptimalkan strategi bisnis di era
+                digital, termasuk penggunaan teknologi terbaru, analisis
+                undefined untuk pengambilan keputusan yang lebih baik.
+              </p>
+              <a href="" className="text-yellow-500 font-semibold">
+                Lihat Lokasi di Maps
+              </a>
+            </div>
+          </div>
+          <div className="flex items-start space-x-4">
+            <div className="flex-shrink-0">
+              <div className="flex items-center justify-center w-10 h-10 bg-yellow-500 text-white rounded-full">
+                2
+              </div>
+            </div>
+            <div className="flex-1">
+              <img
+                src="https://placehold.co/150x100"
+                alt="Event Image"
+                className="w-full h-auto mb-4"
+              />
+              <h3 className="text-xl font-bold mb-2">
+                Mengoptimalkan Strategi Bisnis di Era Digital: Kunci Sukses di
+                Tahun 2024
+              </h3>
+              <div className="flex items-center space-x-4 mb-2">
+                <span className="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded">
+                  Sedang Berlangsung
+                </span>
+                <span className="bg-zinc-100 text-zinc-800 text-xs font-semibold px-2.5 py-0.5 rounded">
+                  Rp. 300.000
+                </span>
+                <span className="bg-yellow-100 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded">
+                  Senin, 29 April 2024
+                </span>
+              </div>
+              <p className="text-zinc-700 mb-4">
+                Dalam dunia bisnis yang semakin terhubung secara digital,
+                penting bagi para profesional untuk memiliki strategi yang
+                efektif dalam menghadapi perubahan yang cepat dan tantangan yang
+                kompleks. Webinar ini dirancang untuk memberikan wawasan
+                mendalam tentang bagaimana mengoptimalkan strategi bisnis di era
+                digital, termasuk penggunaan teknologi terbaru, analisis
+                undefined untuk pengambilan keputusan yang lebih baik.
+              </p>
+              <a href="#" className="text-yellow-500 font-semibold">
+                Lihat Lokasi di Maps
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
       <Footer />
     </>
   );
