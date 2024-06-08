@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import gambarKiri from "../assets/login-register-foto.png";
+
 const Register = () => {
   const [showAdditionalFields, setShowAdditionalFields] = useState(false);
   const [formValues, setFormValues] = useState({
@@ -11,13 +12,6 @@ const Register = () => {
     detail: "",
     memberBisnis: "",
   });
-
-  const options = {
-    kabupatenKota: ["Kabupaten A", "Kabupaten B", "Kabupaten C"],
-    kecamatan: ["Kecamatan A", "Kecamatan B", "Kecamatan C"],
-    kelurahan: ["Kelurahan A", "Kelurahan B", "Kelurahan C"],
-    kodePos: ["12345", "67890", "11223"],
-  };
 
   const inputClass =
     "text-sm text-gray-700 w-full bg-gray-100 px-4 py-2 border border-solid border-gray-300 rounded-full mt-4";
@@ -90,58 +84,38 @@ const Register = () => {
               </>
             ) : (
               <>
-                <select
+                <input
                   name="kabupatenKota"
-                  className="text-sm text-gray-700 w-full bg-gray-100 px-4 py-2 border border-solid border-gray-300 rounded-full mt-4"
+                  className={inputClass}
+                  type="text"
+                  placeholder="Kabupaten / Kota"
                   value={formValues.kabupatenKota}
                   onChange={handleChange}
-                >
-                  <option value="">Kabupaten / Kota</option>
-                  {options.kabupatenKota.map((option) => (
-                    <option key={option} value={option}>
-                      {option}
-                    </option>
-                  ))}
-                </select>
-                <select
+                />
+                <input
                   name="kecamatan"
                   className={inputClass}
+                  type="text"
+                  placeholder="Kecamatan"
                   value={formValues.kecamatan}
                   onChange={handleChange}
-                >
-                  <option value="">Kecamatan</option>
-                  {options.kecamatan.map((option) => (
-                    <option key={option} value={option}>
-                      {option}
-                    </option>
-                  ))}
-                </select>
-                <select
+                />
+                <input
                   name="kelurahan"
                   className={inputClass}
+                  type="text"
+                  placeholder="Kelurahan"
                   value={formValues.kelurahan}
                   onChange={handleChange}
-                >
-                  <option value="">Kelurahan</option>
-                  {options.kelurahan.map((option) => (
-                    <option key={option} value={option}>
-                      {option}
-                    </option>
-                  ))}
-                </select>
-                <select
+                />
+                <input
                   name="kodePos"
                   className={inputClass}
+                  type="text"
+                  placeholder="Kode Pos"
                   value={formValues.kodePos}
                   onChange={handleChange}
-                >
-                  <option value="">Kode Pos</option>
-                  {options.kodePos.map((option) => (
-                    <option key={option} value={option}>
-                      {option}
-                    </option>
-                  ))}
-                </select>
+                />
                 <input
                   name="detail"
                   className={inputClass}
