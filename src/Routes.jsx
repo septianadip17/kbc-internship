@@ -4,6 +4,7 @@ import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 import Event from "./pages/Event";
 import Article from "./pages/Article";
+import Profile from "./pages/Profile";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import ForgotPassword from "./components/ForgotPassword";
@@ -19,6 +20,7 @@ const routes = [
   { path: "/contact", element: <Contact /> },
   { path: "/events", element: <Event /> },
   { path: "/articles", element: <Article /> },
+  { path: "/profile", element: <Profile /> },
   { path: "/articles/:id", element: <CustomArticle /> },
   { path: "/articles/list", element: <ListArticle /> },
   { path: "/articles/list/:idList", element: <MoreArticle /> },
