@@ -5,8 +5,12 @@ const Profile = () => {
   return (
     <>
       <Navbar />
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
-        <div className="bg-white flex flex-col md:flex-row items-center md:items-start p-6 rounded-lg shadow-md w-full max-w-4xl">
+      <div className="container mx-auto flex flex-row items-center justify-center min-h-screen bg-gray-100 p-6 border-2">
+        <div className="grid grid-cols-3 gap-2">
+          <div className="border-2">1</div>
+          <div className="colspan-2 border-2">2</div>
+        </div>
+        {/* <div className="bg-white flex flex-col md:flex-row items-center md:items-start p-6 rounded-lg shadow-md w-full max-w-4xl">
           <div className="flex flex-col items-center md:items-start md:w-1/3 mb-6 md:mb-0">
             <img
               src="https://placehold.co/150x200"
@@ -48,7 +52,7 @@ const Profile = () => {
               </a>
             </p>
           </div>
-        </div>
+        </div> */}
       </div>
       <Footer />
     </>

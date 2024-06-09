@@ -3,19 +3,20 @@ import PropTypes from "prop-types";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import CustomHeader from "../components/CustomHeader";
+import { galleryData } from "../data/galleryData";
 
 const imageGridClass = "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4";
 const imageClass = "w-full h-auto cursor-pointer";
 const linkClass =
   "text-blue-600 mt-2 inline-block text-end hover:text-blue-800 transition-colors duration-300";
 
-const BizcomEvent = ({ year, images, onImageClick }) => {
+const BizcomEvent = ({ year, images, onImageClick, onSeeMoreClick }) => {
   return (
     <div className="p-4">
       <div className="mb-8">
         <h2 className="text-xl font-bold mb-4">BIZCOM {year}</h2>
         <div className={imageGridClass}>
-          {images.map((image, index) => (
+          {images.slice(0, 3).map((image, index) => (
             <img
               key={index}
               src={image.src}
@@ -26,9 +27,9 @@ const BizcomEvent = ({ year, images, onImageClick }) => {
           ))}
         </div>
         <div className="flex justify-end">
-          <a href="#" className={linkClass}>
+          <button onClick={() => onSeeMoreClick(images)} className={linkClass}>
             See More...
-          </a>
+          </button>
         </div>
       </div>
     </div>
@@ -45,75 +46,15 @@ BizcomEvent.propTypes = {
     })
   ).isRequired,
   onImageClick: PropTypes.func.isRequired,
+  onSeeMoreClick: PropTypes.func.isRequired,
 };
 
 const Gallery = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSeeMoreModalOpen, setIsSeeMoreModalOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [modalImages, setModalImages] = useState([]);
-
-  const events = [
-    {
-      year: 2022,
-      images: [
-        {
-          src: "https://source.unsplash.com/300x200/?nature",
-          alt: "Image 1",
-          description: "Beautiful nature scenery",
-        },
-        {
-          src: "https://source.unsplash.com/300x200/?landscape",
-          alt: "Image 2",
-          description: "Stunning landscape view",
-        },
-        {
-          src: "https://source.unsplash.com/300x200/?water",
-          alt: "Image 3",
-          description: "Peaceful water scene",
-        },
-      ],
-    },
-    {
-      year: 2023,
-      images: [
-        {
-          src: "https://source.unsplash.com/300x200/?mountain",
-          alt: "Image 1",
-          description: "Majestic mountain range",
-        },
-        {
-          src: "https://source.unsplash.com/300x200/?forest",
-          alt: "Image 2",
-          description: "Lush forest landscape",
-        },
-        {
-          src: "https://source.unsplash.com/300x200/?sunset",
-          alt: "Image 3",
-          description: "Beautiful sunset view",
-        },
-      ],
-    },
-    {
-      year: 2024,
-      images: [
-        {
-          src: "https://source.unsplash.com/300x200/?beach",
-          alt: "Image 1",
-          description: "Relaxing beach scene",
-        },
-        {
-          src: "https://source.unsplash.com/300x200/?city",
-          alt: "Image 2",
-          description: "Vibrant cityscape",
-        },
-        {
-          src: "https://source.unsplash.com/300x200/?night",
-          alt: "Image 3",
-          description: "Serene night sky",
-        },
-      ],
-    },
-  ];
+  const [seeMoreImages, setSeeMoreImages] = useState([]);
 
   const openModal = (index, images) => {
     setCurrentImageIndex(index);
@@ -123,6 +64,15 @@ const Gallery = () => {
 
   const closeModal = () => {
     setIsModalOpen(false);
+  };
+
+  const openSeeMoreModal = (images) => {
+    setSeeMoreImages(images);
+    setIsSeeMoreModalOpen(true);
+  };
+
+  const closeSeeMoreModal = () => {
+    setIsSeeMoreModalOpen(false);
   };
 
   const showPreviousImage = () => {
@@ -142,19 +92,20 @@ const Gallery = () => {
       <Navbar />
       <CustomHeader title="GALLERY" />
       <div className="container mx-auto">
-        {events.map((event) => (
+        {galleryData.map((event) => (
           <BizcomEvent
             key={event.year}
             year={event.year}
             images={event.images}
             onImageClick={openModal}
+            onSeeMoreClick={openSeeMoreModal}
           />
         ))}
       </div>
       <Footer />
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="relative bg-white rounded-lg shadow-lg p-4 max-w-3xl">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75">
+          <div className="relative bg-white rounded-lg shadow-lg p-6 max-w-3xl w-full mx-4">
             <button
               onClick={closeModal}
               className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-2xl"
@@ -185,6 +136,29 @@ const Gallery = () => {
               <p className="text-sm text-gray-600">
                 {modalImages[currentImageIndex].description}
               </p>
+            </div>
+          </div>
+        </div>
+      )}
+      {isSeeMoreModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75">
+          <div className="relative bg-white rounded-lg shadow-lg p-6 max-w-6xl w-full mx-4">
+            <button
+              onClick={closeSeeMoreModal}
+              className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-2xl"
+            >
+              &times;
+            </button>
+            <div className={imageGridClass}>
+              {seeMoreImages.slice(0, 9).map((image, index) => (
+                <img
+                  key={index}
+                  src={image.src}
+                  alt={image.alt}
+                  className={imageClass}
+                  onClick={() => openModal(index, seeMoreImages)}
+                />
+              ))}
             </div>
           </div>
         </div>
