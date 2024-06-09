@@ -15,6 +15,7 @@ const navigation = [
   { name: "Gallery", link: "/gallery", current: false },
   { name: "Article", link: "/articles", current: false },
   { name: "Contact", link: "/contact", current: false },
+  // { name: "Profile", link: "/profile", current: false },
 ];
 
 function classNames(...classes) {

@@ -1,12 +1,10 @@
 import Navbar from "../components/Navbar";
-import CustomHeader from "../components/CustomHeader";
 import Footer from "../components/Footer";
 
 const Profile = () => {
   return (
     <>
       <Navbar />
-      <CustomHeader title="PROFILE" />
       <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
         <div className="bg-white flex flex-col md:flex-row items-center md:items-start p-6 rounded-lg shadow-md w-full max-w-4xl">
           <div className="flex flex-col items-center md:items-start md:w-1/3 mb-6 md:mb-0">

@@ -1,10 +1,16 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import gambarKiri from "../assets/login-register-foto.png";
+import axios from "axios";
 
 const Register = () => {
   const [showAdditionalFields, setShowAdditionalFields] = useState(false);
   const [formValues, setFormValues] = useState({
+    nama: "",
+    email: "",
+    noTelepon: "",
+    password: "",
+    konfirmasiPassword: "",
     kabupatenKota: "",
     kecamatan: "",
     kelurahan: "",
@@ -23,7 +29,48 @@ const Register = () => {
   };
 
   const handleSubmitClick = () => {
-    alert("Selamat anda telah terdaftar, mohon cek email anda");
+    const {
+      nama,
+      email,
+      noTelepon,
+      password,
+      konfirmasiPassword,
+      kabupatenKota,
+      kecamatan,
+      kelurahan,
+      kodePos,
+      detail,
+      memberBisnis,
+    } = formValues;
+
+    // Check if passwords match
+    if (password !== konfirmasiPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+
+    const formData = {
+      nama,
+      email,
+      noTelepon,
+      password,
+      kabupatenKota,
+      kecamatan,
+      kelurahan,
+      kodePos,
+      detail,
+      memberBisnis,
+    };
+
+    axios
+      .post("http://harahapproject.biz.id/ms-kbc/member/", formData)
+      .then(() => {
+        alert("Selamat anda telah terdaftar, mohon cek email anda");
+      })
+      .catch((err) => {
+        console.error(err);
+        alert("Terjadi kesalahan saat mendaftar. Silakan coba lagi.");
+      });
   };
 
   const handleChange = (e) => {
@@ -64,22 +111,45 @@ const Register = () => {
           <div className="w-full">
             {!showAdditionalFields ? (
               <>
-                <input className={inputClass} type="text" placeholder="Nama" />
-                <input className={inputClass} type="text" placeholder="Email" />
+                <input
+                  className={inputClass}
+                  type="text"
+                  name="nama"
+                  placeholder="Nama"
+                  value={formValues.nama}
+                  onChange={handleChange}
+                />
+                <input
+                  className={inputClass}
+                  type="text"
+                  name="email"
+                  placeholder="Email"
+                  value={formValues.email}
+                  onChange={handleChange}
+                />
                 <input
                   className={inputClass}
                   type="tel"
+                  name="noTelepon"
                   placeholder="No. Telepon / Whatsapp"
+                  value={formValues.noTelepon}
+                  onChange={handleChange}
                 />
                 <input
                   className={inputClass}
                   type="password"
+                  name="password"
                   placeholder="Buat Password"
+                  value={formValues.password}
+                  onChange={handleChange}
                 />
                 <input
                   className={inputClass}
                   type="password"
+                  name="konfirmasiPassword"
                   placeholder="Konfirmasi Password"
+                  value={formValues.konfirmasiPassword}
+                  onChange={handleChange}
                 />
               </>
             ) : (
