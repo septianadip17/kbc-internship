@@ -35,7 +35,7 @@ const Login = () => {
             </h1>
           </div>
           <div className="w-full">
-            <input className={inputClass} type="text" placeholder="Email" />
+            <input className={inputClass} type="text" placeholder="No. Whatsapp" />
             <input
               className={inputClass}
               type="password"
