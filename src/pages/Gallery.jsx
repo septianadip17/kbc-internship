@@ -9,7 +9,7 @@ const BizcomEvent = ({ year, images, onImageClick, onSeeMoreClick }) => (
   <div className="p-4">
     <div className="mb-8">
       <h2 className="text-xl font-bold mb-4">BIZCOM {year}</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
         {images.slice(0, 3).map((image, index) => (
           <img
             key={index}
@@ -47,7 +47,7 @@ BizcomEvent.propTypes = {
 
 const ImageModal = ({ images, currentIndex, onClose, onPrevious, onNext }) => (
   <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75">
-    <div className="relative bg-white rounded-lg shadow-lg p-6 max-w-3xl w-full mx-4">
+    <div className="relative bg-white rounded-lg shadow-lg p-6 max-w-2xl w-full">
       <button
         onClick={onClose}
         className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-2xl"
