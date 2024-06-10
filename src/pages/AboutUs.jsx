@@ -16,12 +16,12 @@ const AboutUs = () => {
       <CustomHeader title="ABOUT US" />
 
       {/* KBC Introduction */}
-      <div className="w-full p-6 mx-auto">
-        <div className="container mx-auto">
-          <h1 className="text-3xl font-bold text-center my-4">
+      <div className="w-full container ">
+        <div className="container w-full justify-center p-6">
+          <h1 className="text-3xl font-bold text-center mb-4">
             KINGDOM BUSINESS COMMUNITY
           </h1>
-          <p className="text-justify">
+          <p className="text-justify mx-auto max-w-5xl">
             Kingdom Business Community (KBC) adalah sebuah gerakan moral dalam
             dunia kerja berbentuk yayasan nirlaba dengan fokus untuk
             memperlengkapi pebisnis & profesional dunia kerja untuk memiliki
@@ -41,7 +41,7 @@ const AboutUs = () => {
         <div className="grid grid-cols-12 gap-4 text-center w-full mx-auto">
           <div className="col-start-2 col-span-4">
             <h1 className="text-3xl font-bold text-center my-4">OUR VISION</h1>
-            <p className="text-start">
+            <p className="text-justify">
               Komunitas Dunia Usaha yang Berpusatkan Allah (A God Centered
               Marketplace Community).
             </p>
@@ -51,7 +51,7 @@ const AboutUs = () => {
           </div>
           <div className="col-start-8 col-span-4 text-start">
             <h1 className="text-3xl font-bold text-center my-4">OUR MISSION</h1>
-            <p className="text-start">
+            <p className="text-justify">
               Membangun komunitas bisnis Kerajaan Allah yang :
               <ul className="list-disc pl-5">
                 <li>Kuat dalam Firman,</li>
@@ -67,9 +67,7 @@ const AboutUs = () => {
 
       {/* Documentation */}
       <div className="bg-white p-6">
-        <h1 className="text-3xl font-bold text-center my-4">
-          DOCUMENTATION
-        </h1>
+        <h1 className="text-3xl font-bold text-center my-4">DOCUMENTATION</h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {documentationImages.map((src, index) => (
             <img
