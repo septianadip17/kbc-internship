@@ -11,7 +11,7 @@ const Header = () => {
         backgroundPosition: "top center",
       }}
     >
-      <div className="relative z-10 container flex flex-col items-center justify-center pt-20 md:pt-32">
+      <div className="relative z-10 flex flex-col items-center justify-center h-full">
         <img className="h-60 mb-10" src={kbcLogo} alt="KBC Logo" />
         <p className="mb-4 text-4xl font-extrabold text-white md:text-5xl lg:text-6xl text-center uppercase">
           Welcome To <br className="hidden md:inline" /> Kingdom Business
