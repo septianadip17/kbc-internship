@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import gambarKiri from "../assets/login-register-foto.png";
+import showButton from "../assets/show.png";
+import hideButton from "../assets/hide.png";
 import axios from "axios";
 
 const Register = () => {
@@ -18,6 +20,10 @@ const Register = () => {
     detail: "",
     memberBisnis: "",
   });
+
+  const [errors, setErrors] = useState({});
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const inputClass =
     "text-sm text-gray-700 w-full bg-gray-100 px-4 py-2 border border-solid border-gray-300 rounded-full mt-4";
@@ -43,9 +49,27 @@ const Register = () => {
       memberBisnis,
     } = formValues;
 
-    // Check if passwords match
+    // Validate fields
+    const newErrors = {};
+
+    if (!email.includes("@")) {
+      newErrors.email = "Email harus mengandung '@'.";
+    }
+
+    if (!/^[0-9]+$/.test(noTelepon)) {
+      newErrors.noTelepon = "Nomor telepon harus berupa angka.";
+    }
+
+    if (!/^[0-9]+$/.test(kodePos)) {
+      newErrors.kodePos = "Kode pos harus berupa angka.";
+    }
+
     if (password !== konfirmasiPassword) {
-      alert("Passwords do not match");
+      newErrors.password = "Password dan konfirmasi password tidak cocok.";
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
       return;
     }
 
@@ -79,6 +103,18 @@ const Register = () => {
       ...prevValues,
       [name]: value,
     }));
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      [name]: "",
+    }));
+  };
+
+  const toggleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const toggleShowConfirmPassword = () => {
+    setShowConfirmPassword(!showConfirmPassword);
   };
 
   return (
@@ -127,6 +163,9 @@ const Register = () => {
                   value={formValues.email}
                   onChange={handleChange}
                 />
+                {errors.email && (
+                  <p className="text-red-500 text-xs mt-1">{errors.email}</p>
+                )}
                 <input
                   className={inputClass}
                   type="tel"
@@ -135,22 +174,56 @@ const Register = () => {
                   value={formValues.noTelepon}
                   onChange={handleChange}
                 />
-                <input
-                  className={inputClass}
-                  type="password"
-                  name="password"
-                  placeholder="Buat Password"
-                  value={formValues.password}
-                  onChange={handleChange}
-                />
-                <input
-                  className={inputClass}
-                  type="password"
-                  name="konfirmasiPassword"
-                  placeholder="Konfirmasi Password"
-                  value={formValues.konfirmasiPassword}
-                  onChange={handleChange}
-                />
+                {errors.noTelepon && (
+                  <p className="text-red-500 text-xs mt-1">
+                    {errors.noTelepon}
+                  </p>
+                )}
+                <div className="relative">
+                  <input
+                    className={inputClass}
+                    type={showPassword ? "text" : "password"}
+                    name="password"
+                    placeholder="Buat Password"
+                    value={formValues.password}
+                    onChange={handleChange}
+                  />
+                  <button
+                    type="button"
+                    onClick={toggleShowPassword}
+                    className="absolute inset-y-0 right-0 top-3 flex items-center px-4 text-gray-600"
+                  >
+                    <img
+                      src={showPassword ? hideButton : showButton}
+                      alt="Toggle Password Visibility"
+                      className="h-4 w-4"
+                    />
+                  </button>
+                </div>
+                <div className="relative">
+                  <input
+                    className={inputClass}
+                    type={showConfirmPassword ? "text" : "password"}
+                    name="konfirmasiPassword"
+                    placeholder="Konfirmasi Password"
+                    value={formValues.konfirmasiPassword}
+                    onChange={handleChange}
+                  />
+                  <button
+                    type="button"
+                    onClick={toggleShowConfirmPassword}
+                    className="absolute inset-y-0 right-0 top-4 flex items-center px-4 text-gray-600"
+                  >
+                    <img
+                      src={showConfirmPassword ? hideButton : showButton}
+                      alt="Toggle Confirm Password Visibility"
+                      className="h-4 w-4 align-items-center"
+                    />
+                  </button>
+                </div>
+                {errors.password && (
+                  <p className="text-red-500 text-xs mt-1">{errors.password}</p>
+                )}
               </>
             ) : (
               <>
@@ -186,6 +259,9 @@ const Register = () => {
                   value={formValues.kodePos}
                   onChange={handleChange}
                 />
+                {errors.kodePos && (
+                  <p className="text-red-500 text-xs mt-1">{errors.kodePos}</p>
+                )}
                 <input
                   name="detail"
                   className={inputClass}

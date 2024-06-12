@@ -1,20 +1,49 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import gambarKiri from "../assets/foto_ramai.png";
 
 const Login = () => {
+  const [whatsapp, setWhatsapp] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
   const inputClass =
     "text-sm w-full px-4 py-2 border border-solid bg-gray-100 border-gray-300 rounded-full mt-4";
   const buttonClass =
     "bg-yellow-600 hover:bg-yellow-900 px-4 py-2 text-white uppercase rounded-full text-xs tracking-wider w-full mt-4";
 
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setError("");
+    try {
+      const response = await axios.post(
+        "https://cors-anywhere.herokuapp.com/http://harahapproject.biz.id/ms-kbc/member/",
+        {
+          whatsapp,
+          password,
+          action: "login",
+        }
+      );
+      console.log(response.data);
+      console.log("login berhasil");
+    } catch (error) {
+      setError("Login failed. Please check your credentials and try again.");
+      console.error(error);
+      console.log("login gagal");
+    }
+  };
+
   return (
     <div className="flex h-screen flex-col md:flex-row">
-      <div className="md:w-2/3 hidden md:block">
-        <img
-          src={gambarKiri}
-          alt="gambar ramai"
-          className="h-full w-full object-cover"
-        />
+      <div className="relative md:w-2/3 hidden md:block">
+        <div className="absolute inset-0 md:w-[840px] md:h-[1088px] w-full h-full">
+          <img
+            src={gambarKiri}
+            alt="gambar ramai"
+            className="w-full h-full object-cover"
+          />
+        </div>
       </div>
       <div className="w-full md:w-1/3 flex items-center justify-center bg-gray-100 md:bg-transparent relative">
         <div
@@ -35,29 +64,42 @@ const Login = () => {
             </h1>
           </div>
           <div className="w-full">
-            <input className={inputClass} type="text" placeholder="No. Whatsapp" />
-            <input
-              className={inputClass}
-              type="password"
-              placeholder="Password"
-            />
-            <div className="mt-4 flex justify-between font-semibold text-sm">
-              <label className="flex text-slate-500 hover:text-slate-600 cursor-pointer">
-                <input className="mr-1" type="checkbox" />
-                <span>Ingatkan Saya</span>
-              </label>
-              <Link
-                to="/recovery"
-                className="text-blue-600 hover:text-blue-700 hover:underline hover:underline-offset-4"
-              >
-                Lupa Password
-              </Link>
-            </div>
-            <div className="text-center mt-4">
-              <button className={buttonClass} type="submit">
-                Login
-              </button>
-            </div>
+            <form onSubmit={handleLogin}>
+              <input
+                className={inputClass}
+                type="text"
+                placeholder="No. Whatsapp"
+                value={whatsapp}
+                onChange={(e) => setWhatsapp(e.target.value)}
+              />
+              <input
+                className={inputClass}
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <div className="mt-4 flex justify-between font-semibold text-sm">
+                <label className="flex text-slate-500 hover:text-slate-600 cursor-pointer">
+                  <input className="mr-1" type="checkbox" />
+                  <span>Ingatkan Saya</span>
+                </label>
+                <Link
+                  to="/recovery"
+                  className="text-blue-600 hover:text-blue-700 hover:underline hover:underline-offset-4"
+                >
+                  Lupa Password
+                </Link>
+              </div>
+              {error && (
+                <div className="text-red-500 text-sm mt-2">{error}</div>
+              )}
+              <div className="text-center mt-4">
+                <button className={buttonClass} type="submit">
+                  Login
+                </button>
+              </div>
+            </form>
             <div className="mt-4 font-semibold text-sm text-slate-500 text-center">
               Belum Punya Akun?{" "}
               <Link
