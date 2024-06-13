@@ -1,5 +1,7 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import articlesData from "../../data/articles.json";
+
 
 const ArticleSummary = ({ title, author, image, idList }) => (
   <div className="border p-4 flex">

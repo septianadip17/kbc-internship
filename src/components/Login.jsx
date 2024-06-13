@@ -8,6 +8,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
+
   const inputClass =
     "text-sm w-full px-4 py-2 border border-solid bg-gray-100 border-gray-300 rounded-full mt-4";
   const buttonClass =
@@ -26,9 +27,10 @@ const Login = () => {
         "http://harahapproject.biz.id/ms-kbc/member/",
         formData
       );
-      // Handle successful login here (e.g., save token, redirect)
+      
       console.log(response.data);
-      console.log("login berhasil");
+      alert("Selamat, kamu berhasil login!"); // Show success alert
+      history.push("/"); // Redirect to home page
     } catch (error) {
       // Handle login error here
       setError("Login failed. Please check your credentials and try again.");
