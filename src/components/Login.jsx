@@ -17,17 +17,20 @@ const Login = () => {
     e.preventDefault();
     setError("");
     try {
+      const formData = new FormData();
+      formData.append("whatsapp", whatsapp);
+      formData.append("password", password);
+      formData.append("action", "login");
+
       const response = await axios.post(
-        "https://cors-anywhere.herokuapp.com/http://harahapproject.biz.id/ms-kbc/member/",
-        {
-          whatsapp,
-          password,
-          action: "login",
-        }
+        "http://harahapproject.biz.id/ms-kbc/member/",
+        formData
       );
+      // Handle successful login here (e.g., save token, redirect)
       console.log(response.data);
       console.log("login berhasil");
     } catch (error) {
+      // Handle login error here
       setError("Login failed. Please check your credentials and try again.");
       console.error(error);
       console.log("login gagal");
