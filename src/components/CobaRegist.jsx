@@ -23,7 +23,7 @@ const RegistrationForm = ({ handleRegister }) => (
     </div>
     <div className="mb-4">
       <input
-        type="text"
+        type="tel"
         placeholder="No Telepon / WhatsApp"
         className="w-full p-3 rounded-lg bg-zinc-200 dark:bg-zinc-700 text-zinc-700 dark:text-zinc-300 focus:outline-none focus:ring-2 focus:ring-zinc-400"
       />
@@ -139,7 +139,6 @@ const AdditionalDetailsForm = () => {
             id="city"
             className="block appearance-none w-full bg-zinc-200 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white dark:focus:bg-zinc-700 focus:border-zinc-500 dark:focus:border-zinc-500"
             value={selectedKabupatenKota}
-            // onChange={(e) => setSelectedKabupatenKota(e.target.value)}
             onChange={handleKabupatenKotaChange}
           >
             <option>Pilih Kabupaten / Kota</option>
@@ -169,7 +168,6 @@ const AdditionalDetailsForm = () => {
             id="district"
             className="block appearance-none w-full bg-zinc-200 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white dark:focus:bg-zinc-700 focus:border-zinc-500 dark:focus:border-zinc-500"
             value={selectedKecamatan}
-            // onChange={(e) => setSelectedKecamatan(e.target.value)}
             onChange={handleKecamatanChange}
           >
             <option>Pilih Kecamatan</option>
