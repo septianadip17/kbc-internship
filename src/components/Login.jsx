@@ -29,7 +29,7 @@ const Login = () => {
       );
       
       console.log(response.data);
-      alert("Selamat, kamu berhasil login!"); // Show success alert
+      // alert("Selamat, kamu berhasil login!"); // Show success alert
       history.push("/"); // Redirect to home page
     } catch (error) {
       // Handle login error here
