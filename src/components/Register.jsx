@@ -47,7 +47,7 @@ const Register = () => {
         {district.district_name}
       </option>
     ));
-
+    
     setKecamatanOptions(districtOptions);
     setSelectedKecamatan("");
     setSelectedKelurahan("");
@@ -162,7 +162,6 @@ const Register = () => {
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
   };
-
   const toggleShowConfirmPassword = () => {
     setShowConfirmPassword(!showConfirmPassword);
   };

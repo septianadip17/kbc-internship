@@ -1,13 +1,20 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import gambarKiri from "../assets/foto_ramai.png";
+import showButton from "../assets/show.png";
+import hideButton from "../assets/hide.png";
 
 const Login = () => {
   const [whatsapp, setWhatsapp] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
+  const toggleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
 
   const inputClass =
     "text-sm w-full px-4 py-2 border border-solid bg-gray-100 border-gray-300 rounded-full mt-4";
@@ -27,15 +34,14 @@ const Login = () => {
         "http://harahapproject.biz.id/ms-kbc/member/",
         formData
       );
-      
+
       console.log(response.data);
       // alert("Selamat, kamu berhasil login!"); // Show success alert
-      history.push("/"); // Redirect to home page
+      navigate("/"); // Redirect to home page
     } catch (error) {
       // Handle login error here
-      setError("Login failed. Please check your credentials and try again.");
+      setError("Login gagal. Periksa kredensial Anda dan coba lagi.");
       console.error(error);
-      console.log("login gagal");
     }
   };
 
@@ -77,13 +83,26 @@ const Login = () => {
                 value={whatsapp}
                 onChange={(e) => setWhatsapp(e.target.value)}
               />
-              <input
-                className={inputClass}
-                type="password"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
+              <div className="relative">
+                <input
+                  className={inputClass}
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                <button
+                  type="button"
+                  onClick={toggleShowPassword}
+                  className="absolute inset-y-0 right-0 top-3 flex items-center px-4 text-gray-600"
+                >
+                  <img
+                    src={showPassword ? hideButton : showButton}
+                    alt="Toggle Password Visibility"
+                    className="h-4 w-4"
+                  />
+                </button>
+              </div>
               <div className="mt-4 flex justify-between font-semibold text-sm">
                 <label className="flex text-slate-500 hover:text-slate-600 cursor-pointer">
                   <input className="mr-1" type="checkbox" />
