@@ -1,6 +1,8 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 import address from "../data/address.json";
+// import gambarKiri from "../assets/login-register-foto.png";
+
 
 const RegistrationForm = ({ handleRegister }) => (
   <form
@@ -70,7 +72,6 @@ const AdditionalDetailsForm = () => {
 
   const handleKabupatenKotaChange = (e) => {
     const selectedRegencyId = e.target.value; // Cari nilai regencyId
-
 
     console.log(`Selected Regency ID: ${selectedRegencyId}`);
     // console.log(`Selected Regency Name: ${selectedRegencyName}`);

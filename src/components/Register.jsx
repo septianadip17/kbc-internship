@@ -4,6 +4,7 @@ import gambarKiri from "../assets/login-register-foto.png";
 import showButton from "../assets/show.png";
 import hideButton from "../assets/hide.png";
 import axios from "axios";
+import address from "../data/address.json";
 
 const Register = () => {
   const [showAdditionalFields, setShowAdditionalFields] = useState(false);
@@ -20,6 +21,56 @@ const Register = () => {
     detail: "",
     memberBisnis: "",
   });
+
+  const [selectedKabupatenKota, setSelectedKabupatenKota] = useState("");
+  const [selectedKecamatan, setSelectedKecamatan] = useState("");
+  const [selectedKelurahan, setSelectedKelurahan] = useState("");
+  const [kecamatanOptions, setKecamatanOptions] = useState([]);
+  const [kelurahanOptions, setKelurahanOptions] = useState([]);
+
+  const kabupatenKotaOptions = address.regencies.map((regency) => (
+    <option key={regency.regency_id} value={regency.regency_id}>
+      {regency.regency_name}
+    </option>
+  ));
+
+  const handleKabupatenKotaChange = (e) => {
+    const selectedRegencyId = e.target.value;
+    setSelectedKabupatenKota(selectedRegencyId);
+
+    const filteredDistricts = address.districts.filter(
+      (district) => district.regency_id === selectedRegencyId
+    );
+
+    const districtOptions = filteredDistricts.map((district) => (
+      <option key={district.district_id} value={district.district_id}>
+        {district.district_name}
+      </option>
+    ));
+
+    setKecamatanOptions(districtOptions);
+    setSelectedKecamatan("");
+    setSelectedKelurahan("");
+    setKelurahanOptions([]);
+  };
+
+  const handleKecamatanChange = (e) => {
+    const selectedDistrictID = e.target.value;
+    setSelectedKecamatan(selectedDistrictID);
+
+    const filteredVillages = address.villages.filter(
+      (village) => village.district_id === selectedDistrictID
+    );
+
+    const villageOptions = filteredVillages.map((village) => (
+      <option key={village.village_id} value={village.village_id}>
+        {village.village_name}
+      </option>
+    ));
+
+    setKelurahanOptions(villageOptions);
+    setSelectedKelurahan("");
+  };
 
   const [errors, setErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false);
@@ -49,7 +100,6 @@ const Register = () => {
       memberBisnis,
     } = formValues;
 
-    // Validate fields
     const newErrors = {};
 
     if (!email.includes("@")) {
@@ -227,34 +277,44 @@ const Register = () => {
               </>
             ) : (
               <>
-                <input
+                {/* dropdown pilih kabupaten kota */}
+                <select
+                  id="kabupatenKota"
                   name="kabupatenKota"
                   className={inputClass}
-                  type="text"
-                  placeholder="Kabupaten / Kota"
-                  value={formValues.kabupatenKota}
-                  onChange={handleChange}
-                />
-                <input
+                  value={selectedKabupatenKota}
+                  onChange={handleKabupatenKotaChange}
+                >
+                  <option value="">Pilih Kabupaten / Kota</option>
+                  {kabupatenKotaOptions}
+                </select>
+                {/* dropdown pilih kecamatan */}
+                <select
+                  id="kecamatan"
                   name="kecamatan"
                   className={inputClass}
-                  type="text"
-                  placeholder="Kecamatan"
-                  value={formValues.kecamatan}
-                  onChange={handleChange}
-                />
-                <input
+                  value={selectedKecamatan}
+                  onChange={handleKecamatanChange}
+                >
+                  <option value="">Pilih Kecamatan</option>
+                  {kecamatanOptions}
+                </select>
+                {/* dropdown pilih kelurahan */}
+                <select
+                  id="kelurahan"
                   name="kelurahan"
                   className={inputClass}
-                  type="text"
-                  placeholder="Kelurahan"
-                  value={formValues.kelurahan}
-                  onChange={handleChange}
-                />
+                  value={selectedKelurahan}
+                  onChange={(e) => setSelectedKelurahan(e.target.value)}
+                >
+                  <option value="">Pilih Kelurahan</option>
+                  {kelurahanOptions}
+                </select>
+
                 <input
-                  name="kodePos"
                   className={inputClass}
                   type="text"
+                  name="kodePos"
                   placeholder="Kode Pos"
                   value={formValues.kodePos}
                   onChange={handleChange}
@@ -263,44 +323,39 @@ const Register = () => {
                   <p className="text-red-500 text-xs mt-1">{errors.kodePos}</p>
                 )}
                 <input
-                  name="detail"
                   className={inputClass}
                   type="text"
-                  placeholder="Detail Alamat (Cth. Nama Jalan, No. Rumah, dsb)"
+                  name="detail"
+                  placeholder="Detail"
                   value={formValues.detail}
                   onChange={handleChange}
                 />
                 <input
-                  name="memberBisnis"
                   className={inputClass}
                   type="text"
+                  name="memberBisnis"
                   placeholder="Member Bisnis"
                   value={formValues.memberBisnis}
                   onChange={handleChange}
                 />
               </>
             )}
-
-            <div className="text-center mt-4">
-              <button
-                className={buttonClass}
-                type="button"
-                onClick={
-                  showAdditionalFields ? handleSubmitClick : handleDaftarClick
-                }
-              >
-                {showAdditionalFields ? "Selesai" : "Daftar"}
+            {!showAdditionalFields && (
+              <button className={buttonClass} onClick={handleDaftarClick}>
+                Daftar
               </button>
-            </div>
-            <div className="mt-4 font-semibold text-sm text-slate-500 text-center">
-              Sudah Punya Akun?{" "}
-              <Link
-                to="/login"
-                className="text-red-600 hover:underline hover:underline-offset-4"
-              >
-                Login
-              </Link>
-            </div>
+            )}
+            {showAdditionalFields && (
+              <button className={buttonClass} onClick={handleSubmitClick}>
+                Submit
+              </button>
+            )}
+          </div>
+          <div className="text-sm text-gray-700 mt-4">
+            Sudah punya akun?{" "}
+            <Link to="/login" className="text-yellow-600">
+              Masuk
+            </Link>
           </div>
         </div>
       </div>
