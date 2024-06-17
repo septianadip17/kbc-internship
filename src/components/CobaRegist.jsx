@@ -68,14 +68,9 @@ const AdditionalDetailsForm = () => {
     </option>
   ));
 
-  // const kelurahanOptions = address.villages.map((village, index) => (
-  //   <option key={index}>{village.village_name}</option>
-  // ));
-
   const handleKabupatenKotaChange = (e) => {
     const selectedRegencyId = e.target.value; // Cari nilai regencyId
 
-    // const selectedRegencyName = e.target.options[e.target.selectedIndex].text; // Get the selected regency_name
 
     console.log(`Selected Regency ID: ${selectedRegencyId}`);
     // console.log(`Selected Regency Name: ${selectedRegencyName}`);
