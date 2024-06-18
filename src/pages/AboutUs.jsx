@@ -1,6 +1,9 @@
+import { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import CustomHeader from "../components/CustomHeader";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 // Data gambar untuk dokumentasi
 const documentationImages = [
@@ -10,18 +13,27 @@ const documentationImages = [
 ];
 
 const AboutUs = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // global animation duration (1000ms = 1s)
+    });
+  }, []);
+
   return (
     <>
       <Navbar />
       <CustomHeader title="ABOUT US" />
 
       {/* KBC Introduction */}
-      <div className="w-full container ">
-        <div className="container w-full justify-center p-6">
+      <div
+        className="w-full flex justify-center items-center px-4 sm:px-8 lg:px-16"
+        data-aos="fade-up"
+      >
+        <div className="flex flex-col justify-center items-center py-4 max-w-5xl w-full mx-auto">
           <h1 className="text-3xl font-bold text-center mb-4">
             KINGDOM BUSINESS COMMUNITY
           </h1>
-          <p className="text-justify mx-auto max-w-5xl">
+          <p className="text-justify">
             Kingdom Business Community (KBC) adalah sebuah gerakan moral dalam
             dunia kerja berbentuk yayasan nirlaba dengan fokus untuk
             memperlengkapi pebisnis & profesional dunia kerja untuk memiliki
@@ -37,44 +49,59 @@ const AboutUs = () => {
       </div>
 
       {/* Vision and Mission */}
-      <div className="flex justify-center items-center mx-auto py-8">
-        <div className="grid grid-cols-12 gap-4 text-center w-full mx-auto">
-          <div className="col-start-2 col-span-4">
+      <div className="flex justify-center items-center mx-auto py-8 px-4 sm:px-8 lg:px-16">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 text-center w-full max-w-5xl">
+          <div
+            className="md:col-start-2 md:col-span-4"
+            data-aos="fade-right"
+            data-aos-duration="1500"
+          >
             <h1 className="text-3xl font-bold text-center my-4">OUR VISION</h1>
             <p className="text-justify">
               Komunitas Dunia Usaha yang Berpusatkan Allah (A God Centered
               Marketplace Community).
             </p>
           </div>
-          <div className="col-start-6 col-span-2 flex justify-center items-center">
-            <div className="w-1 h-full bg-gray-600"></div>
+          <div
+            className="md:col-start-6 md:col-span-2 flex justify-center items-center"
+            data-aos="fade-up"
+            data-aos-duration="1500"
+          >
+            <div className="w-1 h-full bg-gray-600 hidden md:block"></div>
           </div>
-          <div className="col-start-8 col-span-4 text-start">
+          <div
+            className="md:col-start-8 md:col-span-4 text-start"
+            data-aos="fade-left"
+            data-aos-duration="1500"
+          >
             <h1 className="text-3xl font-bold text-center my-4">OUR MISSION</h1>
             <p className="text-justify">
               Membangun komunitas bisnis Kerajaan Allah yang :
-              <ul className="list-disc pl-5">
-                <li>Kuat dalam Firman,</li>
-                <li>Ahli dalam bisnis dan</li>
-                <li>
-                  Menjadi berkat / peduli (Termasuk komunitas pra sejahtera)
-                </li>
-              </ul>
             </p>
+            <ul className="list-disc pl-5 text-justify">
+              <li>Kuat dalam Firman,</li>
+              <li>Ahli dalam bisnis dan</li>
+              <li>
+                Menjadi berkat / peduli (Termasuk komunitas pra sejahtera)
+              </li>
+            </ul>
           </div>
         </div>
       </div>
 
       {/* Documentation */}
-      <div className="bg-white p-6">
+      <div className="bg-white p-6 px-4 sm:px-8 lg:px-16" data-aos="fade-up">
         <h1 className="text-3xl font-bold text-center my-4">DOCUMENTATION</h1>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {documentationImages.map((src, index) => (
             <img
               key={index}
               src={src}
               alt={`Documentation Image ${index + 1}`}
               className="rounded-lg shadow-md"
+              data-aos="zoom-in"
+              data-aos-duration="2000" // individual animation duration
+              data-aos-delay={`${index * 200}`} // adding delay to stagger animations
             />
           ))}
         </div>
