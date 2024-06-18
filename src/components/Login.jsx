@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import gambarKiri from "../assets/foto_ramai.png";
@@ -9,8 +9,19 @@ const Login = () => {
   const [whatsapp, setWhatsapp] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const savedWhatsapp = localStorage.getItem("whatsapp");
+    const savedPassword = localStorage.getItem("password");
+    if (savedWhatsapp && savedPassword) {
+      setWhatsapp(savedWhatsapp);
+      setPassword(savedPassword);
+      setRememberMe(true);
+    }
+  }, []);
 
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
@@ -36,11 +47,18 @@ const Login = () => {
       );
 
       console.log(response.data);
-      // alert("Selamat, kamu berhasil login!"); // Show success alert
+
+      if (rememberMe) {
+        localStorage.setItem("whatsapp", whatsapp);
+        localStorage.setItem("password", password);
+      } else {
+        localStorage.removeItem("whatsapp");
+        localStorage.removeItem("password");
+      }
+
       navigate("/"); // Redirect to home page
     } catch (error) {
-      // Handle login error here
-      setError("Login gagal. Periksa kredensial Anda dan coba lagi.");
+      setError("Login gagal. Periksa kembali dan coba lagi.");
       console.error(error);
     }
   };
@@ -105,7 +123,12 @@ const Login = () => {
               </div>
               <div className="mt-4 flex justify-between font-semibold text-sm">
                 <label className="flex text-slate-500 hover:text-slate-600 cursor-pointer">
-                  <input className="mr-1" type="checkbox" />
+                  <input
+                    className="mr-1"
+                    type="checkbox"
+                    checked={rememberMe}
+                    onChange={() => setRememberMe(!rememberMe)}
+                  />
                   <span>Ingatkan Saya</span>
                 </label>
                 <Link
