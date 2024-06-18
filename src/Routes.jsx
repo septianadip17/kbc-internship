@@ -13,6 +13,7 @@ import CustomArticle from "./pages/articles/CustomArticle";
 import MoreArticle from "./pages/articles/MoreArticle";
 import ListArticle from "./pages/articles/ListArticle";
 import CobaRegist from "./components/CobaRegist";
+import EventRegist from "./pages/EventRegist";
 
 const routes = [
   { path: "/", element: <Home /> },
@@ -30,6 +31,7 @@ const routes = [
   { path: "/recovery", element: <ForgotPassword /> },
   { path: "/*", element: <NotFound /> },
   { path: "/coba-regist", element: <CobaRegist /> },
+  { path: "/event-regist", element: <EventRegist /> },
 ];
 
 export default routes;
