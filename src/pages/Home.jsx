@@ -11,23 +11,31 @@ import cardBackground from "../assets/card-background.png";
 import { Link } from "react-router-dom";
 
 const Home = () => {
-  // Inisialisasi AOS
+  // Initialize AOS
   useEffect(() => {
-    AOS.init({ duration: 1000 });
+    AOS.init({ duration: 1500 });
   }, []);
 
-  // useInView untuk mendeteksi elemen dalam viewport
+  // useInView for detecting elements in the viewport
   const { ref, inView } = useInView({
-    triggerOnce: true, // Trigger hanya sekali
-    threshold: 0.1, // Berapa banyak elemen yang terlihat sebelum trigger
+    triggerOnce: true, // Trigger only once
+    threshold: 0.1, // How much of the element is visible before triggering
   });
 
   // data alumni
-  const alumniCount = 6;
-  const alumniListItems = Array.from({ length: alumniCount }, (_, index) => (
+  const alumniListItems = [
+    { count: 12010, label: "ALUMNI SUKSES SEJATI" },
+    { count: 6002, label: "ALUMNI KINGDOM FINANCIAL" },
+    { count: 900, label: "ALUMNI FIRE" },
+    { count: 8084, label: "ALUMNI ROAD TO SUCCESS" },
+    { count: 1130, label: "ALUMNI DARE TO SUCCEED" },
+    { count: 1558, label: "ALUMNI GLORY LEADER IN MARKETPLACE" },
+    { count: 583, label: "ALUMNI LEAD TO BLESS" },
+    { count: 314, label: "ALUMNI SHIFTING UP" },
+  ].map((item, index) => (
     <li key={index} className="font-bold text-2xl text-center p-4">
-      <h2>{inView ? <CountUp end={1000} duration={2} /> : "0"}</h2>
-      <h2>ALUMNI SUKSES SEJATI</h2>
+      <h2>{inView ? <CountUp end={item.count} duration={5} /> : "0"}</h2>
+      <h2>{item.label}</h2>
     </li>
   ));
 
@@ -36,9 +44,12 @@ const Home = () => {
       <Navbar />
       <Header />
       {/* About Us */}
-      <div className="container mx-auto py-10" data-aos="fade-up">
+      <div
+        className="container mx-auto py-10 px-4 sm:px-8 lg:px-16"
+        data-aos="fade-up"
+      >
         <div className="grid md:grid-cols-12 gap-6">
-          <div className="md:col-span-8 text-justify m-10">
+          <div className="md:col-span-8 text-justify">
             <h2 className="text-3xl font-bold pb-2">ONE FAMILY</h2>
             <p className="mb-6">
               Kingdom Business Community (KBC) adalah sebuah gerakan moral dalam
@@ -58,11 +69,11 @@ const Home = () => {
               (Berkorban untuk Orang Lain / Penyerahan Hak).
             </p>
           </div>
-          <div className="md:col-span-4">
+          <div className="md:col-span-4 flex justify-center items-center">
             <img
               src={fotoRamai}
               alt="foto ramai"
-              className="align-center mx-auto size-96"
+              className="align-center mx-auto max-w-full h-auto"
               data-aos="fade-left"
             />
           </div>
@@ -70,8 +81,12 @@ const Home = () => {
       </div>
 
       {/* Total Alumni */}
-      <div className="container mx-auto py-10" ref={ref} data-aos="fade-up">
-        <ul className="my-6 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 list-none">
+      <div
+        className="container mx-auto py-10 px-4 sm:px-8 lg:px-16"
+        ref={ref}
+        data-aos="fade-up"
+      >
+        <ul className="my-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 list-none">
           {alumniListItems}
         </ul>
       </div>
@@ -114,7 +129,6 @@ const Home = () => {
             </div>
           ))}
         </div>
-
         <div className="text-center mt-6">
           <Link to="/events">
             <button className="bg-white text-red-500 font-bold py-2 px-6 rounded hover:bg-red-500 hover:text-white">
