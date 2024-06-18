@@ -10,17 +10,17 @@ const Footer = () => {
     {
       src: instagramIcon,
       alt: "Instagram",
-      link: "https://www.instagram.com/",
+      link: "https://www.instagram.com/kbc.id",
     },
     {
       src: whatsappIcon,
       alt: "WhatsApp",
-      link: "https://www.whatsapp.com/",
+      link: "https://api.whatsapp.com/send/?phone=62817131257&text&type=phone_number&app_absent=0",
     },
     {
       src: youtubeIcon,
       alt: "YouTube",
-      link: "https://www.youtube.com/",
+      link: "https://www.youtube.com/@suksessejati",
     },
     {
       src: linkedinIcon,
@@ -30,12 +30,12 @@ const Footer = () => {
     {
       src: facebookIcon,
       alt: "Facebook",
-      link: "https://www.facebook.com/",
+      link: "https://www.facebook.com/kbcjatim",
     },
     {
       src: twitterIcon,
       alt: "Twitter",
-      link: "https://www.twitter.com/",
+      link: "https://twitter.com/kbcindonesia",
     },
   ];
 
@@ -90,12 +90,12 @@ const Footer = () => {
             </div>
           </div>
         </div>
-      <div className="col-start-1 col-end-7 mt-6">
-        <hr className="border-gray-300 md:hidden"/>
-        <p className="text-center">
-          Copyright © 2024 Kingdom Business Community
-        </p>
-      </div>
+        <div className="col-start-1 col-end-7 mt-6">
+          <hr className="border-gray-300 md:hidden" />
+          <p className="text-center">
+            Copyright © 2024 Kingdom Business Community
+          </p>
+        </div>
       </div>
     </>
   );
