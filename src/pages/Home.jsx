@@ -18,7 +18,7 @@ const Home = () => {
 
   // useInView for detecting elements in the viewport
   const { ref, inView } = useInView({
-    triggerOnce: true, // Trigger only once
+    // triggerOnce: true, // Trigger only once
     threshold: 0.1, // How much of the element is visible before triggering
   });
 
@@ -34,7 +34,7 @@ const Home = () => {
     { count: 314, label: "ALUMNI SHIFTING UP" },
   ].map((item, index) => (
     <li key={index} className="font-bold text-2xl text-center p-4">
-      <h2>{inView ? <CountUp end={item.count} duration={5} /> : "0"}</h2>
+      <h2>{inView ? <CountUp end={item.count} duration={2} /> : "0"}</h2>
       <h2>{item.label}</h2>
     </li>
   ));
