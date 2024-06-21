@@ -45,6 +45,7 @@ BizcomEvent.propTypes = {
   onSeeMoreClick: PropTypes.func.isRequired,
 };
 
+// modal image
 const ImageModal = ({ images, currentIndex, onClose, onPrevious, onNext }) => (
   <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75">
     <div className="relative bg-white rounded-lg shadow-lg p-6 max-w-2xl w-full">
@@ -54,18 +55,20 @@ const ImageModal = ({ images, currentIndex, onClose, onPrevious, onNext }) => (
       >
         &times;
       </button>
-      <div className="relative flex items-center justify-between">
+      <div className="relative flex items-center justify-between mt-10">
         <button
           onClick={onPrevious}
           className="text-gray-500 hover:text-gray-700 text-2xl mx-2"
         >
           &larr;
         </button>
-        <img
-          src={images[currentIndex].src}
-          alt={images[currentIndex].alt}
-          className="w-full h-auto mx-auto"
-        />
+        <div className="flex flex-1 justify-center items-center mx-2">
+          <img
+            src={images[currentIndex].src}
+            alt={images[currentIndex].alt}
+            className="max-w-full max-h-screen"
+          />
+        </div>
         <button
           onClick={onNext}
           className="text-gray-500 hover:text-gray-700 text-2xl mx-2"
@@ -97,8 +100,9 @@ ImageModal.propTypes = {
   onNext: PropTypes.func.isRequired,
 };
 
+// see more modal image
 const SeeMoreModal = ({ images, onClose, onImageClick }) => (
-  <div className="fixed inset-0 z-70 flex items-center justify-center bg-black bg-opacity-75 overflow-hidden">
+  <div className="fixed inset-0 z-30 flex items-center justify-center bg-black bg-opacity-75 overflow-hidden">
     <div className="relative bg-white rounded-lg shadow-lg p-6 max-w-6xl w-full mx-4 overflow-auto max-h-screen">
       <button
         onClick={onClose}
@@ -112,7 +116,7 @@ const SeeMoreModal = ({ images, onClose, onImageClick }) => (
             key={index}
             src={image.src}
             alt={image.alt}
-            className="w-full h-auto cursor-zoom-in"
+            className="w-full z-40 h-auto cursor-zoom-in"
             onClick={() => onImageClick(index, images)}
           />
         ))}
