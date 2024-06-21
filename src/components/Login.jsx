@@ -77,14 +77,12 @@ const Login = () => {
 
   return (
     <div className="flex h-screen flex-col md:flex-row">
-      <div className="relative md:w-2/3 hidden md:block">
-        <div className="absolute inset-0 md:w-[840px] md:h-[1088px] w-full h-full">
-          <img
-            src={gambarKiri}
-            alt="gambar ramai"
-            className="w-full h-full object-cover"
-          />
-        </div>
+      <div className="md:w-2/3 hidden md:block">
+        <img
+          src={gambarKiri}
+          alt="gambar ramai"
+          className="h-full w-full object-cover"
+        />
       </div>
       <div className="w-full md:w-1/3 flex items-center justify-center bg-gray-100 md:bg-transparent relative">
         <div
