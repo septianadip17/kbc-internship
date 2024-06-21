@@ -5,6 +5,17 @@ import gambarKiri from "../assets/foto_ramai.png";
 import showButton from "../assets/show.png";
 import hideButton from "../assets/hide.png";
 
+// Tambahkan interceptor untuk menambahkan header CORS
+axios.interceptors.request.use(
+  (config) => {
+    config.headers["Access-Control-Allow-Origin"] = "*";
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
+
 const Login = () => {
   const [whatsapp, setWhatsapp] = useState("");
   const [password, setPassword] = useState("");
@@ -46,6 +57,7 @@ const Login = () => {
         formData
       );
 
+      // Handle response
       console.log(response.data);
 
       if (rememberMe) {
