@@ -6,11 +6,7 @@ import NotFound from "../NotFound";
 
 const MoreArticle = () => {
   const { idList } = useParams();
-  // console.log(idList);
-  // console.log(articlesData.articleList);
-
   const article = articlesData.articleList.find((articleList) => {
-    // console.log(articleList)
     articleList.id === parseInt(idList);
   });
   if (!article) {

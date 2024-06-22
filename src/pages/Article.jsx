@@ -4,30 +4,30 @@ import Footer from "../components/Footer";
 import CustomHeader from "../components/CustomHeader";
 import articlesData from "../data/articles.json";
 import { Link } from "react-router-dom";
-import axios from "axios";
-import { useState, useEffect } from "react";
+// import axios from "axios";
+// import { useState, useEffect } from "react";
 
 const Article = () => {
   const { header, mainArticles, articleList } = articlesData;
 
   // eslint-disable-next-line no-unused-vars
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
 
-  useEffect(() => {
-    axios
-      .get(
-        "https://d486ab47-019b-4bb4-acf7-0db10ab21add.mock.pstmn.io/articles"
-      )
-      .then((response) => {
-        // Handle the response data
-        setData(response.data);
-        console.log(response.data.header);
-      })
-      .catch((error) => {
-        // Handle any errors
-        console.error("Error:", error);
-      });
-  }, []); // The empty array ensures this effect runs only once
+  // useEffect(() => {
+  //   axios
+  //     .get(
+  //       "https://d486ab47-019b-4bb4-acf7-0db10ab21add.mock.pstmn.io/articles"
+  //     )
+  //     .then((response) => {
+  //       // Handle the response data
+  //       setData(response.data);
+  //       console.log(response.data.header);
+  //     })
+  //     .catch((error) => {
+  //       // Handle any errors
+  //       console.error("Error:", error);
+  //     });
+  // }, []); // The empty array ensures this effect runs only once
 
   const ArticleCard = ({ title, description, image, id, buttonText }) => (
     <div className="border p-4 mb-4 flex flex-col md:flex-row">
@@ -62,7 +62,7 @@ const Article = () => {
     <div className="border p-4 flex">
       <div className="w-1/4">
         <Link to={`/articles/list/${idList}`}>
-          <img src={image} alt="Article Image" className="w-full h-auto mb-2" />
+          <img src={image} alt="Article Image" className="w-full h-auto mb-2 rounded-xl" />
         </Link>
       </div>
       <div className="text-justify w-3/4 pl-4 ">
