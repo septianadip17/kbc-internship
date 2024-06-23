@@ -5,7 +5,7 @@ const ForgotPassword = () => {
   const inputClass =
     "text-sm w-full px-4 py-2 border border-solid bg-gray-100 border-gray-300 rounded-full mt-4";
   const buttonClass =
-    "bg-yellow-600 hover:bg-yellow-900 px-4 py-2 text-white uppercase rounded text-xs tracking-wider w-full mt-4 rounded-full";
+    "bg-yellow-600 hover:bg-yellow-900 px-4 py-2 text-white uppercase rounded-full font-bold tracking-wider w-full mt-4";
 
   return (
     <div className="flex h-screen flex-col md:flex-row">
