@@ -102,7 +102,7 @@ const Login = () => {
               Login
             </h1>
           </div>
-          <div className="w-full">
+          <div className="w-full px-9">
             <form onSubmit={handleLogin}>
               <input
                 className={inputClass}

@@ -21,7 +21,7 @@ const ForgotPassword = () => {
           className="absolute inset-0 md:hidden bg-cover bg-center"
           style={{ backgroundImage: `url(${gambarKiri})` }}
         ></div>
-        <div className="flex flex-col justify-center items-center p-5 w-full max-w-full bg-white bg-opacity-90 md:bg-opacity-100 z-10 h-full md:h-auto min-h-screen">
+        <div className="flex flex-col justify-center items-center p-5 w-full max-w- bg-white bg-opacity-90 md:bg-opacity-100 z-10 h-full md:h-auto min-h-screen">
           <div className="text-center">
             <Link to="/">
               <img
@@ -34,7 +34,7 @@ const ForgotPassword = () => {
               Lupa Password
             </h1>
           </div>
-          <div className="w-full">
+          <div className="w-full px-9">
             <input
               className={inputClass}
               type="tel"

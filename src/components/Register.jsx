@@ -79,7 +79,7 @@ const Register = () => {
   const inputClass =
     "text-sm text-gray-700 w-full bg-gray-100 px-4 py-2 border border-solid border-gray-300 rounded-full mt-4";
   const buttonClass =
-    "w-full mt-4 bg-yellow-600 hover:bg-yellow-900 px-6 py-2 text-white uppercase rounded-full text-xs tracking-wider";
+    "w-full mt-4 bg-yellow-600 hover:bg-yellow-900 px-6 py-2 text-white font-bold uppercase rounded-full tracking-wider";
 
   const handleDaftarClick = () => {
     setShowAdditionalFields(true);
@@ -193,7 +193,7 @@ const Register = () => {
               Sign Up
             </h1>
           </div>
-          <div className="w-full">
+          <div className="w-full px-9">
             {!showAdditionalFields ? (
               <>
                 <input
@@ -346,7 +346,7 @@ const Register = () => {
             )}
             {showAdditionalFields && (
               <button className={buttonClass} onClick={handleSubmitClick}>
-                Submit
+                Selesai
               </button>
             )}
           </div>
