@@ -5,7 +5,7 @@ const ForgotPassword = () => {
   const inputClass =
     "text-sm w-full px-4 py-2 border border-solid bg-gray-100 border-gray-300 rounded-full mt-4";
   const buttonClass =
-    "bg-yellow-600 hover:bg-yellow-900 px-4 py-2 text-white uppercase rounded text-xs tracking-wider w-full mt-4";
+    "bg-yellow-600 hover:bg-yellow-900 px-4 py-2 text-white uppercase rounded text-xs tracking-wider w-full mt-4 rounded-full";
 
   return (
     <div className="flex h-screen flex-col md:flex-row">
@@ -35,7 +35,7 @@ const ForgotPassword = () => {
             </h1>
           </div>
           <div className="w-full">
-            <input className={inputClass} type="nama" placeholder="Nama" />
+            <input className={inputClass} type="tel" placeholder="No. Whatsapp" />
             <input className={inputClass} type="email" placeholder="Email" />
             <div className="text-center font-bold text-sm mt-4">
               <button className={buttonClass} type="submit">
