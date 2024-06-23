@@ -5,7 +5,7 @@ import gambarKiri from "../assets/foto_ramai.png";
 import showButton from "../assets/show.png";
 import hideButton from "../assets/hide.png";
 
-// Tambahkan interceptor untuk menambahkan header CORS
+axios.defaults.withCredentials = true;
 axios.interceptors.request.use(
   (config) => {
     config.headers["Access-Control-Allow-Origin"] = "*";
@@ -84,12 +84,12 @@ const Login = () => {
           className="h-full w-full object-cover"
         />
       </div>
-      <div className="w-full md:w-1/3 flex items-center justify-center bg-gray-100 md:bg-transparent relative">
+      <div className="w-full md:w-1/3 flex items-center justify-center bg-gray-100 md:bg-transparent">
         <div
           className="absolute inset-0 md:hidden bg-cover bg-center"
           style={{ backgroundImage: `url(${gambarKiri})` }}
         ></div>
-        <div className="flex flex-col justify-center items-center space-y-4 p-5 w-full max-w-full bg-white bg-opacity-90 md:bg-opacity-100 z-10 h-full md:h-auto">
+        <div className="flex flex-col justify-center items-center p-5 w-full max-w-full bg-white bg-opacity-90 md:bg-opacity-100 z-10 h-full md:h-auto min-h-screen">
           <div className="text-center">
             <Link to="/">
               <img

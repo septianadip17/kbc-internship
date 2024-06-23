@@ -47,7 +47,7 @@ const Register = () => {
         {district.district_name}
       </option>
     ));
-    
+
     setKecamatanOptions(districtOptions);
     setSelectedKecamatan("");
     setSelectedKelurahan("");
@@ -180,7 +180,7 @@ const Register = () => {
           className="absolute inset-0 md:hidden bg-cover bg-center"
           style={{ backgroundImage: `url(${gambarKiri})` }}
         ></div>
-        <div className="flex flex-col justify-center items-center space-y-4 p-5 w-full max-w-full bg-white bg-opacity-90 md:bg-opacity-100 z-10 h-full md:h-auto">
+        <div className="flex flex-col justify-center items-center p-5 w-full max-w-full bg-white bg-opacity-90 md:bg-opacity-100 z-10 h-full md:h-auto min-h-screen">
           <div className="text-center">
             <Link to="/">
               <img
